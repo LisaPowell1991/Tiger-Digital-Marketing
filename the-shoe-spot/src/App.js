@@ -1,4 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
+import AboutUs from "../src/components/About";
+import Headers from "./components/header/header";
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
@@ -7,6 +10,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import AboutUs from './components/About';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,12 +51,11 @@ function App() {
         </div>
       )}
 
-      <div>
-        <AboutUs />
-      </div>
-
       <Login show={showLogin} handleClose={handleCloseLogin} />
       <Signup show={showSignup} handleClose={handleCloseSignup} />
+      <Headers/>
+      <AboutUs/>
+
     </div>
   );
 }

@@ -1,0 +1,25 @@
+.logo a img{
+  width: 60px;
+  height: 60px;
+  border-radius: 70px;
+}
+.logo{
+  padding-left:20px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+}
+.links{
+  padding-right: 400px;
+}
+.links ul{
+  display:flex;
+}
+ul li{
+  padding-right:90px;
+  list-style: none;
+}
+ a {
+  cursor: pointer;
+}
