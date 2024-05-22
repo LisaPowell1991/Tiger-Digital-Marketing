@@ -40,11 +40,11 @@ function App() {
           <Logout />
         </div>
       ) : (
-        <div>
-          <Button variant="primary" onClick={handleShowLogin}>
+        <div className="d-flex justify-content-end mt-3">
+          <Button variant="primary" onClick={handleShowLogin} className="me-2">
             Login
           </Button>
-          <Button variant="secondary" onClick={handleShowSignup}>
+          <Button variant="secondary" onClick={handleShowSignup} className="me-2">
             Signup
           </Button>
         </div>
