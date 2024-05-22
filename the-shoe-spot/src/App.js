@@ -5,9 +5,13 @@ import Logout from './components/Logout';
 import { auth } from './config/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import AboutUs from './components/About';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -19,6 +23,12 @@ function App() {
     };
   }, []);
 
+  const handleShowLogin = () => setShowLogin(true);
+  const handleCloseLogin = () => setShowLogin(false);
+
+  const handleShowSignup = () => setShowSignup(true);
+  const handleCloseSignup = () => setShowSignup(false);
+
   return (
     <div className="App">
       {user ? (
@@ -28,16 +38,21 @@ function App() {
         </div>
       ) : (
         <div>
-          <h1>Sign Up</h1>
-          <Signup />
-          <h1>Login</h1>
-          <Login />
+          <Button variant="primary" onClick={handleShowLogin}>
+            Login
+          </Button>
+          <Button variant="secondary" onClick={handleShowSignup}>
+            Signup
+          </Button>
         </div>
       )}
 
       <div>
         <AboutUs />
       </div>
+
+      <Login show={showLogin} handleClose={handleCloseLogin} />
+      <Signup show={showSignup} handleClose={handleCloseSignup} />
     </div>
   );
 }
