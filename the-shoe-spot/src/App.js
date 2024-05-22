@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Footer from './components/footer/footer';
+import Contact from './components/contact/contact';
 import { auth } from './config/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Button } from 'react-bootstrap';
@@ -45,7 +46,11 @@ function App() {
           <Button variant="primary" onClick={handleShowLogin} className="me-2">
             Login
           </Button>
-          <Button variant="secondary" onClick={handleShowSignup} className="me-2">
+          <Button
+            variant="secondary"
+            onClick={handleShowSignup}
+            className="me-2"
+          >
             Signup
           </Button>
         </div>
@@ -55,8 +60,8 @@ function App() {
       <Signup show={showSignup} handleClose={handleCloseSignup} />
       <Headers />
       <AboutUs />
-      <Footer/>
-
+      <Contact />
+      <Footer />
     </div>
   );
 }
