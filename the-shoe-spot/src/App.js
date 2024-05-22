@@ -5,6 +5,7 @@ import Headers from "./components/header/header";
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Footer from './components/footer/footer';
 import { auth } from './config/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Button } from 'react-bootstrap';
@@ -54,6 +55,7 @@ function App() {
       <Signup show={showSignup} handleClose={handleCloseSignup} />
       <Headers />
       <AboutUs />
+      <Footer/>
 
     </div>
   );
