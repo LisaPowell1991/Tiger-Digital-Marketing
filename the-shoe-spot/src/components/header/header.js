@@ -1,35 +1,61 @@
-import React from 'react'
-import Logo from './Assets/Shoe_spot.png';
-import './header.css'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; // Import NavLink instead of Link
+import Logo from './Assets/logo.png';
+import './header.css';
 
-const Headers = () => {
+const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header>
+    <header className="header-container">
       <div className="logo">
-        <a>
-          <img src={Logo} />
-        </a>
+        <NavLink to="/home" activeClassName="active" onClick={toggleMenu}>
+          <img src={Logo} alt="Logo" />
+        </NavLink>
+        <h6>The Shoe Spot</h6>
       </div>
-      <div className="links">
+      <nav className={`links ${isMenuOpen ? 'open' : ''}`}>
         <ul>
           <li>
-            <a>Home</a>
+            <NavLink to="/home" activeClassName="active" onClick={toggleMenu}>Home</NavLink>
           </li>
           <li>
-            <a>Products</a>
+            <NavLink to="/about" activeClassName="active" onClick={toggleMenu}>About</NavLink>
           </li>
           <li>
-            <a>Contact</a>
+            <NavLink to="/products" activeClassName="active" onClick={toggleMenu}>Products</NavLink>
           </li>
           <li>
-            <a>Cart</a>
+            <NavLink to="/contact" activeClassName="active" onClick={toggleMenu}>Contact</NavLink>
           </li>
           <li>
-            <a>Checkout</a>
+            <NavLink to="/cart" activeClassName="active" onClick={toggleMenu}>Cart</NavLink>
+          </li>
+          <li>
+            <NavLink to="/checkout" activeClassName="active" onClick={toggleMenu}>Checkout</NavLink>
           </li>
         </ul>
+      </nav>
+
+      <div className="auth-buttons">
+        {user ? (
+          <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+        ) : (
+          <>
+            <button className="btn btn-primary me-2" onClick={handleShowLogin}>Login</button>
+            <button className="btn btn-secondary" onClick={handleShowSignup}>Signup</button>
+          </>
+        )}
       </div>
+      <button className="hamburger" onClick={toggleMenu}>
+        {isMenuOpen ? '×' : '☰'}
+      </button>
     </header>
   );
 }
+
 export default Headers;
