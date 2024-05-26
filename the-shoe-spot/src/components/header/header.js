@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from './Assets/Shoe_spot.png';
 import './header.css'
 
-const Headers= () => {
+const Headers = () => {
   return (
     <header>
       <div className="logo">
