@@ -10,7 +10,7 @@ import Contact from './components/contact/contact';
 import ProductPage from './components/ProductPage';
 import ProductDetail from './components/ProductDetail';
 import { auth } from './config/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './config/firebase';
 import { Button } from 'react-bootstrap';
@@ -54,38 +54,33 @@ function App() {
   const handleShowSignup = () => setShowSignup(true);
   const handleCloseSignup = () => setShowSignup(false);
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
+
   return (
     <Router>
       <div className="App">
-        {user ? (
-          <div>
-            <h1>Welcome, {user.email}</h1>
-            <Logout />
-          </div>
-        ) : (
-          <div className="d-flex justify-content-end mt-3">
-            <Button variant="primary" onClick={handleShowLogin} className="me-2">
-              Login
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={handleShowSignup}
-              className="me-2"
-            >
-              Signup
-            </Button>
-          </div>
-        )}
+        <Headers
+          user={user}
+          handleShowLogin={handleShowLogin}
+          handleShowSignup={handleShowSignup}
+          handleLogout={handleLogout}
+        />
 
         <Login show={showLogin} handleClose={handleCloseLogin} />
         <Signup show={showSignup} handleClose={handleCloseSignup} />
-        <Headers />
 
         <Routes>
           <Route path="/" element={<ProductPage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<ProductPage shoes={shoes} />} />
+          <Route path="/products" element={<ProductPage shoes={shoes} />} />
           <Route path="/product/:id" element={<ProductDetail shoes={shoes} />} />
         </Routes>
 

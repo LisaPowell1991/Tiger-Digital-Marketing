@@ -1,25 +1,91 @@
-.logo a img{
-  width: 60px;
-  height: 60px;
-  border-radius: 70px;
-}
-.logo{
-  padding-left:20px;
-}
-header{
+.header-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 1em;
+  background-color: #f8f9fa;
+  height: auto;
+  position: relative;
+  flex-wrap: wrap;
 }
-.links{
-  padding-right: 400px;
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
-.links ul{
-  display:flex;
+
+.logo img {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
 }
-ul li{
-  padding-right:90px;
+
+.links ul {
+  display: flex;
+  gap: 1.5em;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
- a {
+
+.links ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.links ul li a:hover {
+  color: #007bff;
+}
+
+.links ul li a.active {
+  color: #F9A21E;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .btn {
+  padding: 5px 10px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .links ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 7em;
+    border-bottom: 1px solid #00000059;
+    right: 0;
+    background-color: #f8f9fa;
+    width: 50%;
+    text-align: center;
+    padding: 0.75em 0;
+    z-index: 1;
+  }
+
+  .links.open ul {
+    display: flex;
+  }
+
+  .auth-buttons {
+    display: flex;
+    /* Ensure buttons remain visible */
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
