@@ -30,12 +30,7 @@ const ContactPage = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      <div className="social-media">
-        <h4>Follow Us</h4>
-        <a href="https://www.facebook.com">Facebook</a>
-        <a href="https://www.twitter.com">Twitter</a>
-        <a href="https://www.instagram.com">Instagram</a>
-      </div>
+    
     </div>
   );
 };
