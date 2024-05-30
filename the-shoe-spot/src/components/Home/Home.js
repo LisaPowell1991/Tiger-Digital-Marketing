@@ -18,7 +18,7 @@ const HomePage = ({ shoes }) => {
 
       {/* Featured Products Section */}
       <div className="container mt-5">
-        <h2 className="text-center mb-4">Featured Products</h2>
+        <h2 className="featured-product text-center mb-4">Featured Products</h2>
         <div className="row">
           {shoes.map((shoe) => (
             <div key={shoe.id} className="col-md-4 mb-4">

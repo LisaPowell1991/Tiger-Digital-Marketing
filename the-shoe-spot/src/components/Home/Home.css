@@ -29,6 +29,14 @@ p {
 }
 
 /* Featured Products Section */
+
+.featured-product {
+    font-size: 2.5em;
+    color: orange;
+    font-weight: 700;
+    font-style: italic;
+}
+
 .card {
     transition: transform 0.3s ease;
 }
