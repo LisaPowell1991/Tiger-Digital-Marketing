@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { auth } from '../config/firebase';
+import { auth } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Button, Form } from 'react-bootstrap';
-import CustomModal from './Modal';
+import CustomModal from '../Modal';
 
 const Signup = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');

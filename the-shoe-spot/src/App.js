@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutUs from "./components/About/About";
 import Headers from "./components/header/header";
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './components/Login_Signup/Signup';
+import Login from './components/Login_Signup/Login';
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
-import ProductPage from './components/ProductPage';
-import ProductDetail from './components/ProductDetail';
-import CheckoutForm from './components/CheckoutForm';
+import ProductPage from './components/Product/ProductPage';
+import ProductDetail from './components/Product/ProductDetail';
+import CheckoutForm from './components/Checkout_Cart/CheckoutForm';
+import CheckoutPage from './components/Checkout_Cart/Cart';
 import { auth } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
@@ -17,7 +18,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { stripePromise } from './config/firebase';
-import CheckoutPage from './components/Cart';
+
 
 function App() {
   const [user, setUser] = useState(null);

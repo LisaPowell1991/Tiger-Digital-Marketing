@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { functions, httpsCallable } from '../config/firebase';
+import { functions, httpsCallable } from '../../config/firebase';
 
 const stripePromise = loadStripe('pk_test_51PKyfsEGq6ZIMwVezIPnQLRtIubWO6MuRXv3urZPKkI1T6kGkNEiyuntkJ0yFb3rcWF74iZDf8zyQqJzoD8eyYnD00qrOAaf05');
 
