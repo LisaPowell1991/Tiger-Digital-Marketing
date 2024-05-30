@@ -8,6 +8,7 @@ import Logout from './components/Logout';
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
 import ProductPage from './components/ProductPage';
+import HomePage from './components/Home/Home';
 import ProductDetail from './components/ProductDetail';
 import { auth } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -77,11 +78,15 @@ function App() {
         <Signup show={showSignup} handleClose={handleCloseSignup} />
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/" element={<ProductPage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ProductPage shoes={shoes} />} />
-          <Route path="/product/:id" element={<ProductDetail shoes={shoes} />} />
+          <Route
+            path="/product/:id"
+            element={<ProductDetail shoes={shoes} />}
+          />
         </Routes>
 
         <Footer />

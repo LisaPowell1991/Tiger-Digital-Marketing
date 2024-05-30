@@ -6,6 +6,7 @@ const ProductPage = ({ shoes }) => {
     const getPlaceholderImage = (width = 300, height = 200) => {
         return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
     };
+    /*PhotoUrl = a SHOE API here */
 
     return (
         <div className="container mt-5">

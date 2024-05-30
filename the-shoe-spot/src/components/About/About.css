@@ -9,8 +9,9 @@
    padding: 1em;
    transition: transform 0.3s ease;
    margin: 0.5em;
-   
-   
+ }
+ .row{
+  flex-wrap:nowrap;
  }
 
  .team-member:hover {

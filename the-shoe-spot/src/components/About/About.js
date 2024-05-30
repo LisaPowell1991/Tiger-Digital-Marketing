@@ -1,6 +1,9 @@
 // src/AboutUs.js
 import React from 'react';
 import './About.css';
+import Marley from './Assets/marley.jpg';
+import Bekee from './Assets/bekee.jpg';
+import Lisa from './Assets/Lisa.jpg';
 
 const AboutUs = () => {
     return (
@@ -12,17 +15,17 @@ const AboutUs = () => {
             <h2 className="text-center mt-5">Meet the Team</h2>
             <div className="row mt-4">
                 <div className="col-md-4 text-center team-member">
-                    <img src="https://via.placeholder.com/150" className="rounded-circle" alt="Team Member 1" />
+                    <img src={Bekee} className="rounded-circle" alt="Team Member 1" />
                     <h4 className="mt-2">Goddey Bekee</h4>
                     <p>CEO</p>
                 </div>
                 <div className="col-md-4 text-center team-member">
-                    <img src="https://via.placeholder.com/150" className="rounded-circle" alt="Team Member 2" />
+                    <img src={Lisa}className="rounded-circle" alt="Team Member 2" />
                     <h4 className="mt-2">Lisa Powell-Kuyk</h4>
                     <p>Marketing Director</p>
                 </div>
                 <div className="col-md-4 text-center team-member">
-                    <img src="https://via.placeholder.com/150" className="rounded-circle" alt="Team Member 3" />
+                    <img src={Marley} className="rounded-circle" alt="Team Member 3" />
                     <h4 className="mt-2">Marley Enogheghase</h4>
                     <p>Lead Designer</p>
                 </div>
