@@ -1,10 +1,10 @@
 // src/AboutUs.js
 import React from 'react';
-import '../App.css';
+import './About.css';
 
 const AboutUs = () => {
     return (
-        <div className="container mt-5">
+        <div className="container mt-5 header ">
             <h1 className="text-center">About The Shoe Spot</h1>
             <p className="text-center mt-3">
                 Welcome to The Shoe Spot! We offer the best selection of shoes for every occasion. Our team is dedicated to providing excellent customer service and the latest in footwear fashion.

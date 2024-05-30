@@ -4,7 +4,9 @@
     padding: 20px;
     text-align: center;
 }
-
+.contact-page h2{
+color:orange;
+}
 .contact-info {
     margin-bottom: 20px;
 }
