@@ -1,17 +1,12 @@
 import React from "react";
 import "./footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-section">
-          <h4>About Us</h4>
-          <p>
-            We are a leading shoe store providing the best quality footwear at
-            affordable prices.
-          </p>
-        </div>
         <div className="footer-section">
           <h4>Contact Us</h4>
           <p>Email: info@theshoeshop.com</p>
@@ -20,9 +15,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+            <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} /></a>
+            <a href="#" aria-label="Twitter"><FontAwesomeIcon icon={faTwitter} /></a>
+            <a href="#" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
           </div>
         </div>
       </div>

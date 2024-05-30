@@ -1,7 +1,7 @@
 // src/firebase.js
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -25,6 +25,12 @@ const functions = getFunctions(app, 'us-central1'); // Specify your region if di
 // Ensure Stripe is loaded only if window is defined (i.e., not in SSR context)
 const stripePromise = typeof window !== 'undefined' ? loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY) : null;
 
-console.log("Stripe Publishable Key:", process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+// Function to fetch shoes from Firestore
+export const getShoes = async () => {
+    const shoesCol = collection(db, 'shoes');
+    const shoeSnapshot = await getDocs(shoesCol);
+    const shoeList = shoeSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return shoeList;
+};
 
 export { auth, googleProvider, db, functions, httpsCallable, stripePromise };

@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutUs from "./components/About/About";
@@ -11,15 +12,11 @@ import ProductPage from './components/Product/ProductPage';
 import ProductDetail from './components/Product/ProductDetail';
 import CheckoutForm from './components/Checkout_Cart/CheckoutForm';
 import CheckoutPage from './components/Checkout_Cart/Cart';
-import { auth } from './config/firebase';
+import { auth, getShoes, stripePromise } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from './config/firebase';
 import { Elements } from '@stripe/react-stripe-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { stripePromise } from './config/firebase';
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +26,6 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    console.log("kom ons in die addtocart?")
     setCart(prevCart => [...prevCart, item]);
   };
 
@@ -38,19 +34,15 @@ function App() {
       setUser(currentUser);
     });
 
-    console.log("cart:::", cart)
-
     return () => {
       unsubscribe();
     };
-  }, [cart]);
+  }, []);
 
   useEffect(() => {
     const fetchShoes = async () => {
       try {
-        const shoeCollection = collection(db, 'shoes');
-        const shoeSnapshot = await getDocs(shoeCollection);
-        const shoesData = shoeSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const shoesData = await getShoes();
         setShoes(shoesData);
       } catch (error) {
         console.error('Error fetching shoes:', error);
@@ -89,8 +81,7 @@ function App() {
         <Signup show={showSignup} handleClose={handleCloseSignup} />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<ProductPage shoes={shoes} />} />
+          <Route path="/home" element={<HomePage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ProductPage shoes={shoes} />} />
