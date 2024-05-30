@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { auth, googleProvider } from '../config/firebase';
+import { auth, googleProvider } from '../../config/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Button, Form } from 'react-bootstrap';
-import CustomModal from './Modal';
+import CustomModal from '../Modal';
 
 const Login = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');
