@@ -6,6 +6,7 @@ import Signup from './components/Login_Signup/Signup';
 import Login from './components/Login_Signup/Login';
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
+import HomePage from './components/Home/Home';
 import ProductPage from './components/Product/ProductPage';
 import ProductDetail from './components/Product/ProductDetail';
 import CheckoutForm from './components/Checkout_Cart/CheckoutForm';
@@ -88,17 +89,24 @@ function App() {
         <Signup show={showSignup} handleClose={handleCloseSignup} />
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<ProductPage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ProductPage shoes={shoes} />} />
-          <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
+          <Route
+            path="/product/:id"
+            element={<ProductDetail shoes={shoes} addToCart={addToCart} />}
+          />
           <Route path="/cart" element={<CheckoutPage cart={cart} />} />
-          <Route path="/checkout" element={
-            <Elements stripe={stripePromise}>
-              <CheckoutForm cart={cart} />
-            </Elements>
-          } />
+          <Route
+            path="/checkout"
+            element={
+              <Elements stripe={stripePromise}>
+                <CheckoutForm cart={cart} />
+              </Elements>
+            }
+          />
         </Routes>
 
         <Footer />
