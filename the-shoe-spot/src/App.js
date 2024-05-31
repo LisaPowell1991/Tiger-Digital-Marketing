@@ -1,6 +1,5 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import AboutUs from "./components/About/About";
 import Headers from "./components/header/header";
 import Signup from './components/Login_Signup/Signup';
@@ -16,6 +15,8 @@ import { auth, getShoes, stripePromise } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { Elements } from '@stripe/react-stripe-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item]);
+    toast.success('Item added to cart!');
   };
 
   useEffect(() => {
@@ -62,8 +64,9 @@ function App() {
     try {
       await signOut(auth);
       setUser(null);
+      toast.success('User logged out successfully!');
     } catch (error) {
-      console.error('Error logging out:', error);
+      toast.error('Error logging out: ' + error.message);
     }
   };
 
@@ -81,25 +84,17 @@ function App() {
         <Signup show={showSignup} handleClose={handleCloseSignup} />
 
         <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<ProductPage shoes={shoes} />} />
-          <Route
-            path="/product/:id"
-            element={<ProductDetail shoes={shoes} addToCart={addToCart} />}
-          />
+          <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
           <Route path="/cart" element={<CheckoutPage cart={cart} />} />
-          <Route
-            path="/checkout"
-            element={
-              <Elements stripe={stripePromise}>
-                <CheckoutForm cart={cart} />
-              </Elements>
-            }
-          />
+          <Route path="/checkout" element={<Elements stripe={stripePromise}><CheckoutForm cart={cart} /></Elements>} />
         </Routes>
 
+        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <Footer />
       </div>
     </Router>
