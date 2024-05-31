@@ -2,30 +2,32 @@ import React, { useState } from 'react';
 import { auth, googleProvider } from '../../config/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Button, Form } from 'react-bootstrap';
-import CustomModal from '../Modal';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CustomModal from './Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../index.css';
 
 const Login = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+    const handleLogin = async (email, password) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            alert('User logged in successfully!');
-            handleClose();
+            toast.success('User logged in successfully!');
         } catch (error) {
-            alert(error.message);
+            toast.error('Error logging in: ' + error.message);
         }
     };
 
     const handleGoogleLogin = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            alert('User logged in with Google!');
             handleClose();
+            toast.success('User signed in with Google successfully!');
         } catch (error) {
-            alert(error.message);
+            toast.error('Error signing in with Google: ' + error.message);
         }
     };
 
@@ -33,7 +35,7 @@ const Login = ({ show, handleClose }) => {
         <CustomModal show={show} handleClose={handleClose} title="Login">
             <Form onSubmit={handleLogin}>
                 <Form.Group controlId="formEmail">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="custom-form-label">Email</Form.Label>
                     <Form.Control
                         type="email"
                         value={email}
@@ -42,7 +44,7 @@ const Login = ({ show, handleClose }) => {
                     />
                 </Form.Group>
                 <Form.Group controlId="formPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="custom-form-label">Password</Form.Label>
                     <Form.Control
                         type="password"
                         value={password}
@@ -50,10 +52,10 @@ const Login = ({ show, handleClose }) => {
                         placeholder="Password"
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className="custom-button" type="submit">
                     Log In
                 </Button>
-                <Button variant="secondary" onClick={handleGoogleLogin}>
+                <Button className="custom-button-secondary" onClick={handleGoogleLogin}>
                     Log In with Google
                 </Button>
             </Form>

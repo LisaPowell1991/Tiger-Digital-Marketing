@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { auth } from '../../config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Button, Form } from 'react-bootstrap';
-import CustomModal from '../Modal';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CustomModal from './Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../index.css';
 
 const Signup = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');
@@ -12,10 +16,10 @@ const Signup = ({ show, handleClose }) => {
         e.preventDefault();
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            alert('User created successfully!');
             handleClose();
+            toast.success('User signed in with Google successfully!');
         } catch (error) {
-            alert(error.message);
+            toast.error('Error signing in with Google: ' + error.message);
         }
     };
 
@@ -23,7 +27,7 @@ const Signup = ({ show, handleClose }) => {
         <CustomModal show={show} handleClose={handleClose} title="Sign Up">
             <Form onSubmit={handleSignup}>
                 <Form.Group controlId="formEmail">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="custom-form-label">Email</Form.Label>
                     <Form.Control
                         type="email"
                         value={email}
@@ -32,7 +36,7 @@ const Signup = ({ show, handleClose }) => {
                     />
                 </Form.Group>
                 <Form.Group controlId="formPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="custom-form-label">Password</Form.Label>
                     <Form.Control
                         type="password"
                         value={password}
@@ -40,7 +44,7 @@ const Signup = ({ show, handleClose }) => {
                         placeholder="Password"
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className="custom-button" type="submit">
                     Sign Up
                 </Button>
             </Form>

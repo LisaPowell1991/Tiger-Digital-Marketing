@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink instead of Link
+import { NavLink } from 'react-router-dom';
 import Logo from './Assets/logo.png';
 import './header.css';
+import '../../App.css';
 
 const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
   return (
     <header className="header-container">
       <div className="logo">
-        <NavLink to="/home" activeClassName="active" onClick={toggleMenu}>
+        <NavLink to="/" activeClassName="active" onClick={toggleMenu}>
           <img src={Logo} alt="Logo" />
         </NavLink>
         <h6>The Shoe Spot</h6>
@@ -21,7 +22,7 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
       <nav className={`links ${isMenuOpen ? 'open' : ''}`}>
         <ul>
           <li>
-            <NavLink to="/home" activeClassName="active" onClick={toggleMenu}>Home</NavLink>
+            <NavLink to="/" activeClassName="active" onClick={toggleMenu}>Home</NavLink>
           </li>
           <li>
             <NavLink to="/about" activeClassName="active" onClick={toggleMenu}>About</NavLink>
@@ -46,8 +47,8 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
           <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
         ) : (
           <>
-            <button className="btn btn-primary me-2" onClick={handleShowLogin}>Login</button>
-            <button className="btn btn-secondary" onClick={handleShowSignup}>Signup</button>
+            <button className="custom-button me-2" onClick={handleShowLogin}>Login</button>
+            <button className="custom-button-secondary" onClick={handleShowSignup}>Signup</button>
           </>
         )}
       </div>
