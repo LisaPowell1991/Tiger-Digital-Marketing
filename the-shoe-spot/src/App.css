@@ -1,17 +1,27 @@
 :root {
   --primary-color: #F2921D;
-  /* Orange-yellow */
   --secondary-color: #262223;
-  /* Brown */
   --text-color: #000000;
-  /* Black */
   --accent-color: #30698C;
-  /* Blue */
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 
 body {
   font-family: Arial, sans-serif;
   background-color: #faf3f3;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .custom-button {
@@ -22,7 +32,6 @@ body {
   font-size: 1em;
   font-weight: 700;
   border-radius: 0.75em;
-
 }
 
 .custom-button-secondary {
@@ -33,6 +42,10 @@ body {
   font-size: 1em;
   border-radius: 0.75em;
   font-weight: 700;
+}
+
+.main-content {
+  flex: 1;
 }
 
 /* ProductPage */

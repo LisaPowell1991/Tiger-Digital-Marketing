@@ -95,7 +95,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div id="root">
         <Headers
           user={user}
           handleShowLogin={handleShowLogin}
@@ -107,19 +107,22 @@ function App() {
         <Login show={showLogin} handleClose={handleCloseLogin} />
         <Signup show={showSignup} handleClose={handleCloseSignup} />
 
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<HomePage shoes={shoes} />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<ProductPage shoes={shoes} setShoes={setShoes} />} />
-          <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} updateCartItemQuantity={updateCartItemQuantity} removeCartItem={removeCartItem} user={user} />} />
-          <Route path="/checkout" element={<CheckoutPage cart={cart} user={user} />} />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<HomePage shoes={shoes} />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/products" element={<ProductPage shoes={shoes} setShoes={setShoes} />} />
+            <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
+            <Route path="/cart" element={<Cart cart={cart} updateCartItemQuantity={updateCartItemQuantity} removeCartItem={removeCartItem} user={user} />} />
+            <Route path="/checkout" element={<CheckoutPage cart={cart} user={user} />} />
+          </Routes>
+        </div>
+
+        <Footer />
 
         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-        <Footer />
       </div>
     </Router>
   );

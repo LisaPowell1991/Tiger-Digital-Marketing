@@ -1,11 +1,7 @@
-/* Footer Styles */
 .footer {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
     text-align: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 
@@ -33,6 +29,7 @@
     color: #fff;
     text-decoration: none;
     margin: 5px 0;
+    font-size: 1em;
 }
 
 .footer-section a:hover {
@@ -43,25 +40,20 @@
     display: inline-block;
     margin: 0 0.5em;
     font-size: 2rem;
-    /* Adjust icon size */
     color: #fff;
     transition: color 0.3s;
 }
 
-/* Hover states with brand colors */
 .social-links a:hover[aria-label="Facebook"] {
     color: #3b5998;
-    /* Facebook blue */
 }
 
 .social-links a:hover[aria-label="Twitter"] {
     color: #1da1f2;
-    /* Twitter blue */
 }
 
 .social-links a:hover[aria-label="Instagram"] {
     color: #e1306c;
-    /* Instagram pink */
 }
 
 .footer-bottom {
@@ -69,13 +61,7 @@
     padding: 0.75em 0;
 }
 
-.footer p,
-.footer a {
-    color: #fff;
-    text-align: center;
-    font-size: 1em;
-}
-
 .footer-bottom p {
     margin: 0;
+    font-size: 1em;
 }
