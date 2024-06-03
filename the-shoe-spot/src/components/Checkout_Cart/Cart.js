@@ -1,24 +1,53 @@
 import React from 'react';
-import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from './CheckoutForm';
-import { loadStripe } from '@stripe/stripe-js';
-const stripePromise = loadStripe('your_stripe_public_key');
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const CheckoutPage = ({ cart }) => {
+const Cart = ({ cart, updateCartItemQuantity, removeCartItem, user }) => {
+    const getTotalPrice = () => {
+        return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    };
+
     return (
-        <div>
-            <h1>Checkout Page</h1>
-            {cart.map((item, index) => (
-                <div key={index}>
-                    <h2>{item.name}</h2>
-                    <p>Size: {item.size}</p>
+        <div className="container mt-5">
+            <h1 className="mb-4">My Cart</h1>
+            {cart.length === 0 ? (
+                <div>
+                    <p>Your cart is empty.</p>
+                    <Link to="/products" className="btn btn-primary">Explore Our Shoe Collection</Link>
                 </div>
-            ))}
-            <Elements stripe={stripePromise}>
-                <CheckoutForm cart={cart} />
-            </Elements>
+            ) : (
+                <div>
+                    {cart.map((item, index) => (
+                        <div className="card mb-3" key={index}>
+                            <div className="row g-0">
+                                <div className="col-md-4">
+                                    <img src={item.photoUrl} className="img-fluid rounded-start" alt={item.name} />
+                                </div>
+                                <div className="col-md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.name}</h5>
+                                        <p className="card-text">Size: {item.size}</p>
+                                        <p className="card-text">Price: ${item.price.toFixed(2)}</p>
+                                        <div className="d-flex align-items-center">
+                                            <button className="btn btn-outline-secondary me-2" onClick={() => updateCartItemQuantity(index, item.quantity - 1)} disabled={item.quantity <= 1}>-</button>
+                                            <span>{item.quantity}</span>
+                                            <button className="btn btn-outline-secondary ms-2" onClick={() => updateCartItemQuantity(index, item.quantity + 1)}>+</button>
+                                        </div>
+                                        <button className="btn btn-danger mt-3" onClick={() => removeCartItem(index)}>Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                    <h3>Total: ${getTotalPrice()}</h3>
+                    <Link to="/checkout" className={`btn btn-primary ${!user ? 'disabled' : ''}`}>
+                        Proceed to Checkout
+                    </Link>
+                    {!user && <div className="text-danger mt-3">Please sign up or log in before proceeding to checkout.</div>}
+                </div>
+            )}
         </div>
     );
 };
 
-export default CheckoutPage;
+export default Cart;

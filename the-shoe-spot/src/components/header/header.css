@@ -106,7 +106,20 @@
   border: none;
   cursor: pointer;
   z-index: 1001;
-  /* Ensure the hamburger is on top */
+}
+
+.fa-lg {
+  font-size: 1.5em;
+  line-height: 0.05em;
+  padding-left: 0.5em;
+  vertical-align: -0.075em;
+}
+
+.badge-sm {
+  font-size: 0.8em;
+  /* Adjust the font size as needed */
+  padding: 0.2em 0.5em;
+  /* Adjust the padding as needed */
 }
 
 /* Media query for mobile responsiveness */
@@ -114,6 +127,10 @@
 @media (max-width: 912px) {
   .header-container {
     align-items: baseline;
+  }
+
+  .links ul li a {
+    padding: 0.25em 0.5em;
   }
 
 }

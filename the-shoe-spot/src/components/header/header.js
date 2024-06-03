@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import Logo from './Assets/logo.png';
 import './header.css';
 import '../../App.css';
 
-const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
+const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout, cartItemCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -34,7 +36,10 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
             <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Contact</NavLink>
           </li>
           <li>
-            <NavLink to="/cart" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Cart</NavLink>
+            <NavLink to="/cart" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+              Cart <FontAwesomeIcon icon={faShoppingBag} size="lg" />
+              {cartItemCount > 0 && <span className="badge bg-primary badge-sm">{cartItemCount}</span>}
+            </NavLink>
           </li>
           <li>
             <NavLink to="/checkout" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Checkout</NavLink>

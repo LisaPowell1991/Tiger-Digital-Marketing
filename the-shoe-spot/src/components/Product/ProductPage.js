@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { searchPhotos } from '../../unsplashService';
 
-const ProductPage = ({ shoes }) => {
-    const getPlaceholderImage = (width = 300, height = 200) => {
-        return `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 1000)}`;
-    };
-    /*PhotoUrl = a SHOE API here */
+const ProductPage = ({ shoes, setShoes }) => {
+    const [, setPhotos] = useState([]);
+
+    useEffect(() => {
+        const fetchPhotos = async () => {
+            const results = await searchPhotos('shoes');
+            setPhotos(results);
+
+            const updatedShoes = shoes.map((shoe, index) => ({
+                ...shoe,
+                photoUrl: results[index] ? results[index].urls.small : 'https://via.placeholder.com/300x200'
+            }));
+
+            setShoes(updatedShoes);
+        };
+
+        fetchPhotos();
+    }, [shoes, setShoes]);
 
     return (
         <div className="container mt-5">
@@ -17,7 +31,7 @@ const ProductPage = ({ shoes }) => {
                         <Link to={`/product/${shoe.id}`} className="card-link">
                             <div className="card">
                                 <img
-                                    src={shoe.photoUrl ? shoe.photoUrl : getPlaceholderImage()}
+                                    src={shoe.photoUrl}
                                     className="card-img-top"
                                     alt={shoe.name}
                                 />
