@@ -16,9 +16,9 @@ const ProductDetail = ({ shoes, addToCart }) => {
     };
 
     const handleAddToCart = () => {
-        console.log("hit handleAddToCart");
         if (selectedSize) {
-            addToCart({ ...shoe, size: selectedSize });
+            const quantity = parseInt(document.getElementById('quantity').value, 10);
+            addToCart({ ...shoe, size: selectedSize, quantity });
         } else {
             alert('Please select a size before adding to cart.');
         }
@@ -35,7 +35,7 @@ const ProductDetail = ({ shoes, addToCart }) => {
                     <p className="lead">${shoe.price.toFixed(2)}</p>
                     <div className="mb-3">
                         <label className="form-label">Size</label>
-                        <div className="d-flex flex-wrap">
+                        <div className="d-flex">
                             {[...Array(10).keys()].map(i => (
                                 <div
                                     key={i + 2}

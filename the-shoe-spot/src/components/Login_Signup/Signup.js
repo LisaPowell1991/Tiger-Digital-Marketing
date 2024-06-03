@@ -17,9 +17,9 @@ const Signup = ({ show, handleClose }) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             handleClose();
-            toast.success('User signed in with Google successfully!');
+            toast.success('User signed in successfully!');
         } catch (error) {
-            toast.error('Error signing in with Google: ' + error.message);
+            toast.error('Error signing in: ' + error.message);
         }
     };
 

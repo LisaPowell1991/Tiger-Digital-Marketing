@@ -9,15 +9,15 @@ import Contact from './components/contact/contact';
 import HomePage from './components/Home/Home';
 import ProductPage from './components/Product/ProductPage';
 import ProductDetail from './components/Product/ProductDetail';
-import CheckoutForm from './components/Checkout_Cart/CheckoutForm';
-import CheckoutPage from './components/Checkout_Cart/Cart';
-import { auth, getShoes, stripePromise } from './config/firebase';
+import Cart from './components/Checkout_Cart/Cart';
+import CheckoutPage from './components/Checkout_Cart/CheckoutPage';
+import { auth, getShoes } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { Elements } from '@stripe/react-stripe-js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { searchPhotos } from './unsplashService';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,6 +29,22 @@ function App() {
   const addToCart = (item) => {
     setCart(prevCart => [...prevCart, item]);
     toast.success('Item added to cart!');
+  };
+
+  const updateCartItemQuantity = (index, quantity) => {
+    setCart(prevCart => {
+      const updatedCart = [...prevCart];
+      if (quantity <= 0) {
+        updatedCart.splice(index, 1); // Remove item if quantity is zero or less
+      } else {
+        updatedCart[index].quantity = quantity;
+      }
+      return updatedCart;
+    });
+  };
+
+  const removeCartItem = (index) => {
+    setCart(prevCart => prevCart.filter((_, i) => i !== index));
   };
 
   useEffect(() => {
@@ -45,7 +61,14 @@ function App() {
     const fetchShoes = async () => {
       try {
         const shoesData = await getShoes();
-        setShoes(shoesData);
+        const photos = await searchPhotos('shoes');
+
+        const updatedShoes = shoesData.map((shoe, index) => ({
+          ...shoe,
+          photoUrl: photos[index] ? photos[index].urls.small : 'https://via.placeholder.com/300x200'
+        }));
+
+        setShoes(updatedShoes);
       } catch (error) {
         console.error('Error fetching shoes:', error);
       }
@@ -78,6 +101,7 @@ function App() {
           handleShowLogin={handleShowLogin}
           handleShowSignup={handleShowSignup}
           handleLogout={handleLogout}
+          cartItemCount={cart.reduce((total, item) => total + item.quantity, 0)} // Calculate total quantity in cart
         />
 
         <Login show={showLogin} handleClose={handleCloseLogin} />
@@ -88,10 +112,10 @@ function App() {
           <Route path="/home" element={<HomePage shoes={shoes} />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<ProductPage shoes={shoes} />} />
+          <Route path="/products" element={<ProductPage shoes={shoes} setShoes={setShoes} />} />
           <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
-          <Route path="/cart" element={<CheckoutPage cart={cart} />} />
-          <Route path="/checkout" element={<Elements stripe={stripePromise}><CheckoutForm cart={cart} /></Elements>} />
+          <Route path="/cart" element={<Cart cart={cart} updateCartItemQuantity={updateCartItemQuantity} removeCartItem={removeCartItem} user={user} />} />
+          <Route path="/checkout" element={<CheckoutPage cart={cart} user={user} />} />
         </Routes>
 
         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
