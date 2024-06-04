@@ -1,34 +1,67 @@
+// CheckoutPage.js
 import React, { useState } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
+import PaymentForm from './PaymentForm';
 import { stripePromise } from '../../config/firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Checkout_Cart.css';
 
-const CheckoutPage = ({ cart, setCart, user }) => { // Make sure to include setCart in the props
+
+const CheckoutPage = ({ cart, setCart, user }) => {
     const [successMessage, setSuccessMessage] = useState('');
+    const [formData, setFormData] = useState({
+        email: '',
+        contact: '',
+        country: '',
+        firstName: '',
+        lastName: '',
+        address: '',
+        suburb: '',
+        city: '',
+        province: '',
+        postalCode: '',
+        shippingMethod: 'courier'
+    });
 
     const getTotalPrice = () => {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
     };
 
-    // Function to count the total quantity of a specific item
     const countTotalQuantity = (name) => {
         return cart.reduce((total, item) => {
             return item.name === name ? total + item.quantity : total;
         }, 0);
     };
 
-    // Handle successful payment
     const handlePaymentSuccess = () => {
-        setSuccessMessage('Successfully paid');
-
-        // Clear cart after 3 seconds
+        setSuccessMessage('Payment successfully processed! You will be redirected to the homepage shortly...');
         setTimeout(() => {
             setSuccessMessage('');
-            // Clear the cart
             setCart([]);
-        }, 3000);
+            setFormData({
+                email: '',
+                contact: '',
+                country: '',
+                firstName: '',
+                lastName: '',
+                address: '',
+                suburb: '',
+                city: '',
+                province: '',
+                postalCode: '',
+                shippingMethod: 'courier'
+            });
+            // Redirect to the homepage after 3 seconds
+            setTimeout(() => {
+                window.location.href = '/'; // Change the URL to your homepage
+            }, 2000);
+        }, 5000); // Display success message for 5 seconds
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({ ...prevData, [name]: value }));
     };
 
     return (
@@ -36,9 +69,10 @@ const CheckoutPage = ({ cart, setCart, user }) => { // Make sure to include setC
             <h1 className="mb-4">Checkout</h1>
             <div className="row">
                 <div className="col-md-6">
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm totalAmount={getTotalPrice()} handlePaymentSuccess={handlePaymentSuccess} />
-                    </Elements>
+                    <CheckoutForm
+                        handleInputChange={handleInputChange}
+                        formData={formData}
+                    />
                 </div>
                 <div className="col-md-6">
                     <div className="card p-4">
@@ -52,14 +86,12 @@ const CheckoutPage = ({ cart, setCart, user }) => { // Make sure to include setC
                                         alt={item.name}
                                         className="img-checkout"
                                     />
-                                    {/* Display total quantity of the item */}
                                     <span className="badge bg-primary position-absolute top-0 end-0">
                                         {countTotalQuantity(item.name)}
                                     </span>
                                 </div>
                                 <div>
                                     <h4>{item.name}</h4>
-                                    {/* Display size of the item */}
                                     <p>Size: {item.size}</p>
                                     <div className="d-flex justify-content-between">
                                         <span>${item.price.toFixed(2)}</span>
@@ -68,6 +100,13 @@ const CheckoutPage = ({ cart, setCart, user }) => { // Make sure to include setC
                             </div>
                         ))}
                         <h3>Total: ${getTotalPrice()}</h3>
+                        <Elements stripe={stripePromise}>
+                            <PaymentForm
+                                totalAmount={getTotalPrice()}
+                                handlePaymentSuccess={handlePaymentSuccess}
+                                formData={formData}
+                            />
+                        </Elements>
                     </div>
                 </div>
             </div>

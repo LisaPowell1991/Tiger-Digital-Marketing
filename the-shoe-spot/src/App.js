@@ -87,6 +87,7 @@ function App() {
     try {
       await signOut(auth);
       setUser(null);
+      setCart([]);
       toast.success('User logged out successfully!');
     } catch (error) {
       toast.error('Error logging out: ' + error.message);
@@ -116,13 +117,13 @@ function App() {
             <Route path="/products" element={<ProductPage shoes={shoes} setShoes={setShoes} />} />
             <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
             <Route path="/cart" element={<Cart cart={cart} updateCartItemQuantity={updateCartItemQuantity} removeCartItem={removeCartItem} user={user} />} />
-            <Route path="/checkout" element={<CheckoutPage cart={cart} user={user} />} />
+            <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} user={user} />} />
           </Routes>
         </div>
 
         <Footer />
 
-        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+        <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       </div>
     </Router>
   );

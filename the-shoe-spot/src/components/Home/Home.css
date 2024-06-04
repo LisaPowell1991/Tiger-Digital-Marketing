@@ -63,6 +63,22 @@ p {
 
 /* Media Queries */
 
+@media (max-width: 2000px) {
+    .jumbotron {
+        max-width: 100%;
+        height: auto;
+        padding: 31em;
+    }
+}
+
+@media (max-width: 1400px) {
+    .jumbotron {
+        max-width: 100%;
+        height: auto;
+        padding: 20em;
+    }
+}
+
 @media (max-width: 1200px) {
     .jumbotron {
         max-width: 100%;

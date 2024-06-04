@@ -1,26 +1,28 @@
 /* About Us */
-.header h1{
-  color:orange;
+.header h1 {
+  color: orange;
 }
 
- .team-member {
-   border: 2px solid #ddd;
-   border-radius: 10px;
-   padding: 1em;
-   transition: transform 0.3s ease;
-   margin: 0.5em;
- }
- .row{
-  flex-wrap:nowrap;
- }
+.team-member {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 1em;
+  transition: transform 0.3s ease;
+  margin: 0.5em;
+}
 
- .team-member:hover {
-   transform: scale(1.05);
-   border-color: #007bff;
+.about-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
 
- }
+.team-member:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
 
- .team-member img {
-   width: 100px;
-   height: 100px;
- }
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+}

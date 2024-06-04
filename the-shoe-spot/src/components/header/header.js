@@ -41,20 +41,21 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout, cartIt
               {cartItemCount > 0 && <span className="badge bg-primary badge-sm">{cartItemCount}</span>}
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/checkout" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Checkout</NavLink>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
       <div className="auth-buttons">
-        {user ? (
-          <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
-        ) : (
+        {!user && (
           <>
             <button className="custom-button me-2" onClick={handleShowLogin}>Login</button>
             <button className="custom-button-secondary" onClick={handleShowSignup}>Signup</button>
           </>
+        )}
+        {user && (
+          <button className="custom-button me-2" onClick={handleLogout}>Logout</button>
         )}
       </div>
       <button className="hamburger" onClick={toggleMenu}>

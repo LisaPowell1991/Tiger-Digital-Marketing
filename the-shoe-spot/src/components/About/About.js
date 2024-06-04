@@ -13,14 +13,14 @@ const AboutUs = () => {
                 Welcome to The Shoe Spot! We offer the best selection of shoes for every occasion. Our team is dedicated to providing excellent customer service and the latest in footwear fashion.
             </p>
             <h2 className="text-center mt-5">Meet the Team</h2>
-            <div className="row mt-4">
+            <div className="about-row mt-4">
                 <div className="col-md-4 text-center team-member">
                     <img src={Bekee} className="rounded-circle" alt="Team Member 1" />
                     <h4 className="mt-2">Goddey Bekee</h4>
                     <p>CEO</p>
                 </div>
                 <div className="col-md-4 text-center team-member">
-                    <img src={Lisa}className="rounded-circle" alt="Team Member 2" />
+                    <img src={Lisa} className="rounded-circle" alt="Team Member 2" />
                     <h4 className="mt-2">Lisa Powell-Kuyk</h4>
                     <p>Marketing Director</p>
                 </div>

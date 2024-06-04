@@ -1,78 +1,11 @@
-import React, { useState } from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { functions, httpsCallable } from '../../config/firebase';
+// CheckoutForm.js
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Checkout_Cart.css';
 
-const CheckoutForm = ({ totalAmount }) => {
-    const stripe = useStripe();
-    const elements = useElements();
-    const [paymentProcessing, setPaymentProcessing] = useState(false);
-    const [error, setError] = useState(null);
-    const [formData, setFormData] = useState({
-        email: '',
-        contact: '',
-        country: '',
-        firstName: '',
-        lastName: '',
-        address: '',
-        suburb: '',
-        city: '',
-        province: '',
-        postalCode: '',
-        shippingMethod: 'courier'
-    });
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevData => ({ ...prevData, [name]: value }));
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setPaymentProcessing(true);
-
-        const createPaymentIntent = httpsCallable(functions, 'createPaymentIntent');
-
-        const { data, error: functionError } = await createPaymentIntent({
-            amount: totalAmount * 100 // amount in cents
-        });
-
-        if (functionError) {
-            setError(functionError.message);
-            setPaymentProcessing(false);
-            return;
-        }
-
-        const { clientSecret } = data;
-
-        const cardElement = elements.getElement(CardElement);
-
-        const { error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: cardElement,
-                billing_details: {
-                    email: formData.email,
-                    phone: formData.contact,
-                    address: {
-                        line1: formData.address,
-                    },
-                },
-            },
-        });
-
-        if (stripeError) {
-            setError(stripeError.message);
-            setPaymentProcessing(false);
-            return;
-        }
-
-        setPaymentProcessing(false);
-        alert('Payment Successful');
-    };
-
+const CheckoutForm = ({ handleInputChange, formData }) => {
     return (
-        <form onSubmit={handleSubmit} className="checkout-form">
+        <form className="checkout-form">
             <h3>Contact</h3>
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email</label>
@@ -221,16 +154,6 @@ const CheckoutForm = ({ totalAmount }) => {
                 />
                 <label htmlFor="pickup" className="form-check-label">Pickup at Warehouse</label>
             </div>
-
-            <h3>Payment</h3>
-            <div className="mb-3">
-                <CardElement />
-            </div>
-
-            <button type="submit" className="btn btn-primary btn-lg" disabled={!stripe || paymentProcessing}>
-                {paymentProcessing ? 'Processing…' : 'Pay Now'}
-            </button>
-            {error && <div className="text-danger mt-3">{error}</div>}
         </form>
     );
 };
