@@ -7,10 +7,19 @@ const ContactPage = () => {
     <div className="contact-page">
       <h1>Contact Us</h1>
       <div className="contact-info">
-        <p>Phone: +1 234 567 890</p>
-        <p>Email: support@ecommerce.com</p>
-        <p>Address: 123 E-commerce St, Business City, Country</p>
-        <p>Support Hours: Mon - Fri, 9 AM - 5 PM</p>
+        <p>
+          Phone: <i>+1 234 567 890 </i>
+        </p>
+        <p>
+          Email: <i>support@ecommerce.com</i>
+        </p>
+        <p>
+          Address:
+          <i> 123 E-commerce St, Business City, Country</i>
+        </p>
+        <p>
+          Support Hours: <i>Mon - Fri, 9 AM - 5 PM</i>
+        </p>
       </div>
       <form className="contact-form">
         <label>
@@ -31,7 +40,6 @@ const ContactPage = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-
     </div>
   );
 };
