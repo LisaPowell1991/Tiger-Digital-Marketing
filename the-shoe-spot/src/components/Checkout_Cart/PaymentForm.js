@@ -17,7 +17,7 @@ const PaymentForm = ({ totalAmount, handlePaymentSuccess }) => {
         try {
             const createPaymentIntent = httpsCallable(functions, 'createPaymentIntent');
             const { data, error: functionError } = await createPaymentIntent({
-                amount: totalAmount * 100 // amount in cents
+                amount: Math.round(totalAmount * 100) // amount in cents, rounded to nearest integer
             });
 
             if (functionError) {

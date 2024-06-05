@@ -21,7 +21,7 @@
 
 .logo h6 {
   margin: 0;
-  color: #000;
+  color: #1f1a1b;
 }
 
 .links ul {
@@ -38,7 +38,7 @@
 
 .links ul li a {
   text-decoration: none;
-  color: black;
+  color: #1f1a1b;
   position: relative;
   padding: 0.5em 1em;
   font-size: 1em;
@@ -116,10 +116,9 @@
 }
 
 .badge-sm {
-  font-size: 0.8em;
-  /* Adjust the font size as needed */
+  font-size: 0.75em;
   padding: 0.2em 0.5em;
-  /* Adjust the padding as needed */
+  background-color: #30698C;
 }
 
 /* Media query for mobile responsiveness */

@@ -1,10 +1,11 @@
 import React from "react";
 import "./contact.css";
+import "../../App.css";
 
 const ContactPage = () => {
   return (
     <div className="contact-page">
-      <h2>Contact Us</h2>
+      <h1>Contact Us</h1>
       <div className="contact-info">
         <p>Phone: +1 234 567 890</p>
         <p>Email: support@ecommerce.com</p>
@@ -30,7 +31,7 @@ const ContactPage = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-    
+
     </div>
   );
 };

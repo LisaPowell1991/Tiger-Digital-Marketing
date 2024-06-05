@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
+import "../../App.css";
 
 const HomePage = ({ shoes }) => {
   return (
@@ -12,7 +13,7 @@ const HomePage = ({ shoes }) => {
       </div>
       <h1 className="text-center">Welcome to The Shoe Spot</h1>
       <p className="text-center">Your one-stop shop for the best Shoes.</p>
-      <a className="btn shop-now-btn btn-primary btn-large" href="/products" role="button">
+      <a className="shop-now-btn custom-button btn-large" href="/products" role="button">
         Shop Now
       </a>
 
@@ -33,7 +34,7 @@ const HomePage = ({ shoes }) => {
                   <p className="card-text">${shoe.price.toFixed(2)}</p>
                   <a
                     href={`/product/${shoe.id}`}
-                    className="btn btn-primary"
+                    className="custom-button-secondary"
                   >
                     View Details
                   </a>

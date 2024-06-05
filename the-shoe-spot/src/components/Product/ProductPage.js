@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { searchPhotos } from '../../unsplashService';
+import '../../App.css';
 
 const ProductPage = ({ shoes, setShoes }) => {
     const [, setPhotos] = useState([]);

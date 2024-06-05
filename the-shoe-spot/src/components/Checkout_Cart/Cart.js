@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../App.css';
 
 const Cart = ({ cart, updateCartItemQuantity, removeCartItem, user }) => {
     const getTotalPrice = () => {
@@ -13,7 +14,7 @@ const Cart = ({ cart, updateCartItemQuantity, removeCartItem, user }) => {
             {cart.length === 0 ? (
                 <div>
                     <p>Your cart is empty.</p>
-                    <Link to="/products" className="btn btn-primary">Explore Our Shoe Collection</Link>
+                    <Link to="/products" className="custom-button-secondary">Explore Our Shoe Collection</Link>
                 </div>
             ) : (
                 <div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../App.css';
 
 const ProductDetail = ({ shoes, addToCart }) => {
     const { id } = useParams();
@@ -51,7 +52,7 @@ const ProductDetail = ({ shoes, addToCart }) => {
                         <label htmlFor="quantity" className="form-label">Quantity</label>
                         <input type="number" id="quantity" className="form-control" min="1" max="10" defaultValue="1" />
                     </div>
-                    <button className="btn btn-primary" onClick={handleAddToCart}>Add to Cart</button>
+                    <button className="custom-button-secondary" onClick={handleAddToCart}>Add to Cart</button>
                 </div>
             </div>
         </div>
