@@ -1,0 +1,51 @@
+/* Modal */
+.custom-modal-header {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 15px;
+}
+
+.custom-modal-header .close {
+    color: var(--text-color-light);
+}
+
+.custom-form-label {
+    color: var(--text-color);
+}
+
+.custom-button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 10px 10px 0;
+    /* Margin between buttons */
+}
+
+.custom-button:hover {
+    background-color: var(--btn-hover);
+}
+
+.custom-button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 10px 10px 0;
+    /* Margin between buttons */
+}
+
+.custom-button-secondary:hover {
+    background-color: var(--btn-hover-dark);
+}
+
+.custom-modal-body {
+    padding: 20px;
+}
+
+.custom-modal-footer {
+    background-color: var(--accent-color);
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}

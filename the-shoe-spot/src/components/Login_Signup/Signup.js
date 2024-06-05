@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomModal from './Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../index.css';
+import '../../App.css';
+import './login_signup.css';
 
 const Signup = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');

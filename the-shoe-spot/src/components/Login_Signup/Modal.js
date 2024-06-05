@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import '../../index.css';
+import '../../App.css';
+import './login_signup.css';
 
 const CustomModal = ({ show, handleClose, title, children }) => {
     return (
@@ -8,9 +9,9 @@ const CustomModal = ({ show, handleClose, title, children }) => {
             <Modal.Header className="custom-modal-header" closeButton>
                 <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{children}</Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+            <Modal.Body className="custom-modal-body">{children}</Modal.Body>
+            <Modal.Footer className="custom-modal-footer">
+                <Button className="custom-button" variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
             </Modal.Footer>

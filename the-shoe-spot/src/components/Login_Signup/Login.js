@@ -6,15 +6,18 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomModal from './Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../index.css';
+import '../../App.css';
+import './login_signup.css';
 
 const Login = ({ show, handleClose }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = async (email, password) => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
+            handleClose();
             toast.success('User logged in successfully!');
         } catch (error) {
             toast.error('Error logging in: ' + error.message);

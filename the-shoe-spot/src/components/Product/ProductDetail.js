@@ -32,7 +32,7 @@ const ProductDetail = ({ shoes, addToCart }) => {
                     <img src={shoe.photoUrl} alt={shoe.name} className="img-fluid" />
                 </div>
                 <div className="col-md-6">
-                    <h1>{shoe.name}</h1>
+                    <h2>{shoe.name}</h2>
                     <p className="lead">${shoe.price.toFixed(2)}</p>
                     <div className="mb-3">
                         <label className="form-label">Size</label>
