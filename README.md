@@ -1,22 +1,20 @@
 Welcome to the Shoe-Spot e-commerce platform. This project aims to provide a seamless online shopping experience for users, with a focus on performance, security, and scalability. It is designed to handle a large inventory of products and provide an intuitive interface for both customers and administrators.
 ## features 
- User authentication and authorization
- Product catalog management
- Shopping cart functionality
- Order processing and management
- Payment gateway integration
- User reviews and ratings
- Responsive design for mobile and desktop
- Login/sign up with email and password or with Google, as well as logout features that clear the cart when the user logs out
- A stripe payment gateway successfully integrated that allows the user to make test payments.
+ - User authentication and authorization
+ - Product catalog management
+ - Shopping cart functionality
+ - Order processing and management
+ - Payment gateway integration
+ - User reviews and ratings
+ - Responsive design for mobile and desktop
+ - Login/sign up with email and password or with Google, as well as logout features that clear the cart when the user logs out
+ - A stripe payment gateway successfully integrated that allows the user to make test payments.
  displaying the different shoe products by getting it from our Firebase database
- user-friendly and responsive that makes it easy for users to navigate through the website from one page to the next on any screen size.
- you can add/remove items from the cart.
- feature that makes that users must be logged in before they can proceed to checkout.
- After success payment, there will appear a message saying success and redirect to homepage.
- Feature that does the calculations of the complete cart, no matter how much you add.
-
- I hope that helps. I think there is probably more, but you can use this as a reference.
+ - user-friendly and responsive that makes it easy for users to navigate through the website from one page to the next on any screen size.
+ - you can add/remove items from the cart.
+ - feature that makes that users must be logged in before they can proceed to checkout.
+ - After success payment, there will appear a message saying success and redirect to homepage.
+ - Feature that does the calculations of the complete cart, no matter how much you add.
 
 ## Technologies Used
  Frontend: React js
@@ -68,3 +66,11 @@ After running these commands in your terminal, npm will download and install the
 ## Testing
 manual testing is done with the command
     'npm start'
+
+## Developers(Team)
+- Name: Bekee Ogonna Goddey 
+  Email: Bekeeogonna@yahoo.com
+- Name: Lisa Powell-kuyk
+  Email: lisapowell46@gmail.com
+- Name: Marley Enogheghase
+  Email: 
