@@ -66,7 +66,5 @@ After running these commands in your terminal, npm will download and install the
 - `PORT`: The port on which the server runs (default is 3000).
 
 ## Testing
-1. Run unit tests
-    ```bash
-    npm start
-    ```
+manual testing is done with the command
+    'npm start'
