@@ -15,9 +15,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a href="www.facebook.com" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} /></a>
-            <a href="www.twitter.com" aria-label="Twitter"><FontAwesomeIcon icon={faTwitter} /></a>
-            <a href="www.instagram.com" aria-label="Instagram"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="www.facebook.com" aria-label="Facebook" onClick={(e) => e.preventDefault()}><FontAwesomeIcon icon={faFacebook} /></a>
+            <a href="www.twitter.com" aria-label="Twitter" onClick={(e) => e.preventDefault()}><FontAwesomeIcon icon={faTwitter} /></a>
+            <a href="www.instagram.com" aria-label="Instagram" onClick={(e) => e.preventDefault()}><FontAwesomeIcon icon={faInstagram} /></a>
           </div>
         </div>
       </div>
