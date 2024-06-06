@@ -88,15 +88,19 @@
   color: white;
 }
 
+.custom-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+}
+
 .custom-button-secondary {
-  background-color: white;
-  color: #F2921D;
-  border: 2px solid #F2921D;
+  background-color: var(--btn-hover-dark);
+  color: var(--text-color-light);
 }
 
 .custom-button-secondary:hover {
-  background-color: #F2921D;
-  color: white;
+  background-color: var(--btn-hover);
+  color: var(--text-color-light);
 }
 
 .hamburger {

@@ -7,6 +7,8 @@
 
 .custom-modal-header .close {
     color: var(--text-color-light);
+    background-color: var(--secondary-color);
+
 }
 
 .custom-form-label {
@@ -14,29 +16,31 @@
 }
 
 .custom-button {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
-    border: none;
-    padding: 10px 20px;
-    margin: 10px 10px 10px 0;
+    background-color: var(--primary-color) !important;
+    color: var(--text-color-light) !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    margin: 10px 10px 10px 0 !important;
     /* Margin between buttons */
 }
 
 .custom-button:hover {
-    background-color: var(--btn-hover);
+    background-color: var(--btn-hover) !important;
+    color: var(--text-color-light) !important;
+    border: none !important;
 }
 
 .custom-button-secondary {
-    background-color: var(--secondary-color);
-    color: var(--text-color-light);
-    border: none;
-    padding: 10px 20px;
-    margin: 10px 10px 10px 0;
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color-light) !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    margin: 10px 10px 10px 0 !important;
     /* Margin between buttons */
 }
 
 .custom-button-secondary:hover {
-    background-color: var(--btn-hover-dark);
+    background-color: var(--btn-hover-dark) !important;
 }
 
 .custom-modal-body {

@@ -1,7 +1,7 @@
 :root {
   --primary-color: #F2921D;
   --btn-hover: #ec6a00;
-  --btn-hover-dark: #1f1a1b;
+  --btn-hover-dark: #3c3f3df8;
   --secondary-color: #262223;
   --text-color: #000000;
   --text-color-light: #ffffff;
@@ -54,7 +54,7 @@ h3 {
 }
 
 .custom-button:hover {
-  background-color: var(--btn-hover);
+  background-color: var(--btn-hover-dark);
   color: var(--text-color-light);
 }
 
@@ -67,6 +67,11 @@ h3 {
   border-radius: 0.75em;
   font-weight: 700;
   text-decoration: none;
+}
+
+.custom-button-secondary:hover {
+  background-color: var(--btn-hover);
+  color: var(--text-color-light);
 }
 
 .custom-button,

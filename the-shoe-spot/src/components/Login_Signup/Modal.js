@@ -11,7 +11,7 @@ const CustomModal = ({ show, handleClose, title, children }) => {
             </Modal.Header>
             <Modal.Body className="custom-modal-body">{children}</Modal.Body>
             <Modal.Footer className="custom-modal-footer">
-                <Button className="custom-button" variant="secondary" onClick={handleClose}>
+                <Button className="custom-button-secondary" variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
             </Modal.Footer>
