@@ -1,23 +1,23 @@
-Welcome to the Shoe-Spot e-commerce platform. This project aims to provide a seamless online shopping experience for users, with a focus on performance, security, and scalability. It is designed to handle a large inventory of products and provide an intuitive interface for both customers and administrators.
-## features 
+# The Shoe Spot
+
+Welcome to The Shoe Spot e-commerce platform. This project aims to provide a seamless online shopping experience for users, with a focus on performance, security, and scalability. It is designed to handle a large inventory of products and provide an intuitive interface for both customers and administrators.
+## Features 
  - User authentication and authorization
  - Product catalog management
  - Shopping cart functionality
  - Order processing and management
  - Payment gateway integration
- - User reviews and ratings
- - Responsive design for mobile and desktop
  - Login/sign up with email and password or with Google, as well as logout features that clear the cart when the user logs out
  - A stripe payment gateway successfully integrated that allows the user to make test payments.
- displaying the different shoe products by getting it from our Firebase database
- - user-friendly and responsive that makes it easy for users to navigate through the website from one page to the next on any screen size.
- - you can add/remove items from the cart.
- - feature that makes that users must be logged in before they can proceed to checkout.
- - After success payment, there will appear a message saying success and redirect to homepage.
- - Feature that does the calculations of the complete cart, no matter how much you add.
+ - Displaying the different shoe products by getting it from our Firebase database
+ - User-friendly and responsive that makes it easy for users to navigate through the website from one page to the next on any screen size.
+ - User can add/remove items from the cart.
+ - Feature that makes that users must be logged in before they can proceed to checkout.
+ - After success payment, there will appear a message saying success and redirect user to homepage.
+ - Feature that does the calculations of the complete cart, no matter how much you add/remove.
 
 ## Technologies Used
- Frontend: React js
+ Frontend: React js, CSS, Bootstrap
  Backend: Node.js
  Database: firebase
  Authentication: JWT (JSON Web Tokens)
@@ -41,7 +41,6 @@ After running these commands in your terminal, npm will download and install the
 
 ## Usage
 
-
 1. User Registration and Login
     - Navigate to the registration page and create a new account.
     - Log in using your credentials.
@@ -56,7 +55,6 @@ After running these commands in your terminal, npm will download and install the
     - Go to the cart and proceed to checkout.
     - Enter your shipping details and payment information.
     - Complete the order.
-
 
 ## Configuration
 - `JWT_SECRET`: The secret key used for signing JWT tokens.
