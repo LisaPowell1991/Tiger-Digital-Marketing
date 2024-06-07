@@ -73,4 +73,4 @@ manual testing is done with the command
 - Name: Lisa Powell-kuyk
   Email: lisapowell46@gmail.com
 - Name: Marley Enogheghase
-  Email: 
+  Email: marleyenogheghase@gmail.com
