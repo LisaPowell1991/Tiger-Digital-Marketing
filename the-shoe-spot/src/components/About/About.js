@@ -1,9 +1,9 @@
 // src/AboutUs.js
 import React from 'react';
 import './About.css';
-import Marley from './Assets/marley.jpg';
-import Bekee from './Assets/bekee.jpg';
-import Lisa from './Assets/Lisa.jpg';
+import Marley from '../../Assets/images/marley.jpg';
+import Bekee from '../../Assets/images/bekee.jpg';
+import Lisa from '../../Assets/images/lisa.jpg';
 
 const AboutUs = () => {
     return (
