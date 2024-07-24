@@ -50,8 +50,7 @@ p {
 }
 
 .card img {
-    height: 350px;
-    /* Adjust height as needed */
+    height: 22rem;
     object-fit: cover;
 }
 

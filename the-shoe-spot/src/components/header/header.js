@@ -6,10 +6,37 @@ import Logo from '../../Assets/images/logo.png';
 import './header.css';
 import '../../App.css';
 
+const NavLinkItem = ({ to, onClick, children }) => {
+  const getClassName = ({ isActive }) => (isActive ? 'active' : '');
+  return (
+    <li>
+      <NavLink to={to} className={getClassName} onClick={onClick}>
+        {children}
+      </NavLink>
+    </li>
+  );
+};
+
+const AuthButtons = ({ user, handleShowLogin, handleShowSignup, handleLogout }) => {
+  return (
+    <div className="auth-buttons">
+      {!user && (
+        <>
+          <button className="custom-button me-2" onClick={handleShowLogin}>Login</button>
+          <button className="custom-button-secondary" onClick={handleShowSignup}>Signup</button>
+        </>
+      )}
+      {user && (
+        <button className="custom-button me-2" onClick={handleLogout}>Logout</button>
+      )}
+    </div>
+  );
+};
+
 const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout, cartItemCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenuOpenState = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -23,42 +50,18 @@ const Headers = ({ user, handleShowLogin, handleShowSignup, handleLogout, cartIt
       </div>
       <nav className={`links ${isMenuOpen ? 'open' : ''}`}>
         <ul>
-          <li>
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/products" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Products</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Contact</NavLink>
-          </li>
-          <li>
-            <NavLink to="/cart" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
-              Cart <FontAwesomeIcon icon={faShoppingBag} size="lg" />
-              {cartItemCount > 0 && <span className="badge bg-primary badge-sm">{cartItemCount}</span>}
-            </NavLink>
-          </li>
-          {/* <li>
-            <NavLink to="/checkout" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>Checkout</NavLink>
-          </li> */}
+          <NavLinkItem to="/" onClick={toggleMenuOpenState}>Home</NavLinkItem>
+          <NavLinkItem to="/about" onClick={toggleMenuOpenState}>About</NavLinkItem>
+          <NavLinkItem to="/products" onClick={toggleMenuOpenState}>Products</NavLinkItem>
+          <NavLinkItem to="/contact" onClick={toggleMenuOpenState}>Contact</NavLinkItem>
+          <NavLinkItem to="/cart" onClick={toggleMenuOpenState}>
+            Cart <FontAwesomeIcon icon={faShoppingBag} size="lg" />
+            {cartItemCount > 0 && <span className="badge bg-primary badge-sm">{cartItemCount}</span>}
+          </NavLinkItem>
         </ul>
       </nav>
-
-      <div className="auth-buttons">
-        {!user && (
-          <>
-            <button className="custom-button me-2" onClick={handleShowLogin}>Login</button>
-            <button className="custom-button-secondary" onClick={handleShowSignup}>Signup</button>
-          </>
-        )}
-        {user && (
-          <button className="custom-button me-2" onClick={handleLogout}>Logout</button>
-        )}
-      </div>
-      <button className="hamburger" onClick={toggleMenu}>
+      <AuthButtons user={user} handleShowLogin={handleShowLogin} handleShowSignup={handleShowSignup} handleLogout={handleLogout} />
+      <button className="hamburger" onClick={toggleMenuOpenState}>
         {isMenuOpen ? '×' : '☰'}
       </button>
     </header>

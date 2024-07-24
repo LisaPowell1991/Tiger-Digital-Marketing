@@ -55,6 +55,7 @@
         ]
     },
     "devDependencies": {
-        "concurrently": "^8.2.2"
+        "concurrently": "^8.2.2",
+        "stylelint": "^16.7.0"
     }
 }
