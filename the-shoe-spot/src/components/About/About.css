@@ -1,28 +1,128 @@
-/* About Us */
+/* Header styles */
 .header h1 {
   color: #F2921D;
+  font-size: 2.5rem;
 }
 
-.team-member {
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 1em;
-  transition: transform 0.3s ease;
-  margin: 0.5em;
+/* About section styles */
+.about-title {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2rem;
+  letter-spacing: 1.8px;
+  margin: 0;
 }
 
-.about-row {
+.about-subtitle {
+  font-size: 1rem;
+}
+
+/* Team section styles */
+.team-container {
+  align-items: center;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  position: relative;
 }
 
-.team-member:hover {
-  transform: scale(1.05);
-  border-color: #007bff;
-
+.team-card {
+  background-color: rgba(229, 229, 229, 1);
+  box-shadow: -1px 9px 18px -5px rgba(17, 17, 17, 1);
+  flex: 0 0 23%;
+  height: 500px;
+  margin: 25px 5px 0;
+  min-width: 350px;
+  overflow: hidden;
+  position: relative;
 }
 
-.team-member img {
-  width: 100px;
-  height: 100px;
+.team-card:hover {
+  .team-image {
+    border-radius: 50%;
+    height: 200px;
+    margin-top: 20px;
+    width: 200px;
+  }
+
+  .team-card__role {
+    left: -130%;
+  }
+
+  .team-card__info {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Team card styles */
+.team-image {
+  display: block;
+  height: 500px;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+  transition: all 0.4s;
+  width: 100%;
+}
+
+.team-card__role {
+  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 5%;
+  left: 0;
+  line-height: 1.5;
+  max-width: 300px;
+  padding: 0 20px;
+  position: absolute;
+  transition: all 0.4s;
+  width: 100%;
+}
+
+.team-role {
+  letter-spacing: 1.1px;
+}
+
+.team-card__info {
+  background-color: #fff;
+  bottom: 0;
+  height: 40%;
+  opacity: 0;
+  overflow-y: auto;
+  padding: 20px;
+  position: absolute;
+  transition: all 0.4s;
+  visibility: hidden;
+}
+
+.team-card__name {
+  font-size: 1.8rem !important;
+  letter-spacing: 1.1px;
+  margin: 10px 0;
+}
+
+.team-card__desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+/* Media queries */
+@media only screen and (max-width: 1200px) {
+  .team-card {
+    flex: 0 0 48%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    padding: 50px 20px;
+  }
+
+  .team-card {
+    flex: 0 0 100%;
+    margin: 25px auto 0;
+    max-width: 400px;
+    min-width: unset;
+  }
 }
