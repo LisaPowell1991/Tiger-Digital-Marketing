@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/The-Shoe-Spot/static/css/main.f8d92813.css",
+    "main.js": "/The-Shoe-Spot/static/js/main.a9a3dc93.js",
+    "static/js/453.41bc2ead.chunk.js": "/The-Shoe-Spot/static/js/453.41bc2ead.chunk.js",
+    "static/media/home_hero.png": "/The-Shoe-Spot/static/media/home_hero.c9df0012ed06b95db05d.png",
+    "static/media/lisa.jpg": "/The-Shoe-Spot/static/media/lisa.1dc97f9625149b023a45.jpg",
+    "static/media/marley.jpg": "/The-Shoe-Spot/static/media/marley.f78edb7e88d71a4b91cc.jpg",
+    "static/media/bekee.jpg": "/The-Shoe-Spot/static/media/bekee.aee0266db333b10cd6b5.jpg",
+    "static/media/Logo.png": "/The-Shoe-Spot/static/media/Logo.7566efd00370fc91832d.png",
+    "index.html": "/The-Shoe-Spot/index.html",
+    "main.f8d92813.css.map": "/The-Shoe-Spot/static/css/main.f8d92813.css.map",
+    "main.a9a3dc93.js.map": "/The-Shoe-Spot/static/js/main.a9a3dc93.js.map",
+    "453.41bc2ead.chunk.js.map": "/The-Shoe-Spot/static/js/453.41bc2ead.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8d92813.css",
+    "static/js/main.a9a3dc93.js"
+  ]
+}
