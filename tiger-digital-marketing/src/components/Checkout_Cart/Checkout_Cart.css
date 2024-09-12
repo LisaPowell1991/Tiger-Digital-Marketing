@@ -1,0 +1,65 @@
+.size-block {
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 3rem;
+    border-radius: 5px;
+}
+
+.size-block.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.checkout-form h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.checkout-form .btn {
+    margin-bottom: 1rem;
+}
+
+.checkout-form .form-label {
+    font-weight: bold;
+}
+
+.checkout-form .form-check-label {
+    margin-left: 1.5rem;
+}
+
+.item-image-container {
+    position: relative;
+    /* Ensure relative positioning for badge */
+}
+
+img.img-checkout {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.badge {
+    font-size: 1rem;
+    padding: 0.25em 0.4em;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    /* Center badge on top right corner */
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
