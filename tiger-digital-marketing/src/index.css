@@ -1,0 +1,36 @@
+/* styles.css */
+:root {
+  --primary-color: #FFA500;
+  /* Orange-yellow */
+  --secondary-color: #8B4513;
+  /* Brown */
+  --text-color: #000000;
+  /* Black */
+  --accent-color: #0000FF;
+  /* Blue */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.custom-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+}
+
+.custom-button-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
+
+.custom-modal-header {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.custom-form-label {
+  color: var(--text-color);
+}
