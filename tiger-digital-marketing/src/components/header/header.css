@@ -17,21 +17,16 @@
   width: 100%;
   height: 100%;
   background-color: rgb(3, 1, 2, 0.5);
-  /* Black with some transparency */
   z-index: -1;
-  /* Place the overlay behind the header content */
   pointer-events: none;
-  /* Allow clicks to pass through the overlay */
 }
 
 .header-container .logo {
   z-index: 2;
-  /* Ensure the logo is above the overlay */
 }
 
 .header-container nav {
   z-index: 2;
-  /* Ensure the nav is above the overlay */
 }
 
 .logo {
@@ -60,7 +55,6 @@
 .links ul li a {
   text-decoration: none;
   color: #B6B4CA;
-  /* Light Purple for readability */
   position: relative;
   padding: 0.5em 1em;
   font-size: 1.25em;
@@ -76,7 +70,6 @@
   bottom: -5px;
   left: 0;
   background-color: #F06D1A;
-  /* Orange for underline effect */
   transform-origin: bottom left;
   transition: transform 0.25s ease-out;
 }
@@ -88,12 +81,10 @@
 
 .links ul li a:hover {
   color: #F06D1A;
-  /* Orange on hover */
 }
 
 .links ul li a.active {
   color: #F06D1A;
-  /* Active link color changed to Orange */
 }
 
 .auth-buttons {
@@ -107,17 +98,13 @@
   cursor: pointer;
   margin-left: 10px;
   background-color: var(--primary-color);
-  /* Blue */
   color: var(--text-color-light);
-  /* White */
   border-radius: 0.75em;
 }
 
 .custom-button:hover {
   background-color: var(--btn-hover-light) !important;
-  /* Lighter Gray */
   color: var(--text-color-light);
-  /* White text on hover */
 }
 
 .hamburger {

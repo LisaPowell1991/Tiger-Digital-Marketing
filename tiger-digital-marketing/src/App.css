@@ -55,9 +55,7 @@ h3 {
 
 .custom-button {
   background-color: var(--primary-color);
-  /* Blue */
   color: var(--text-color-light);
-  /* White */
   border: none;
   padding: 0.75em;
   font-size: 1em;
@@ -67,9 +65,7 @@ h3 {
 
 .custom-button:hover {
   background-color: var(--btn-hover-light) !important;
-  /* Use lighter Gray */
   color: var(--text-color-light);
-  /* White text on hover */
 }
 
 .custom-button,
@@ -126,11 +122,8 @@ h3 {
 
 .size-block.selected {
   background-color: #383736;
-  /* Dark Gray */
   color: var(--text-color-light);
-  /* White */
   border-color: #383736;
-  /* Dark Gray */
 }
 
 .size-block:hover {
