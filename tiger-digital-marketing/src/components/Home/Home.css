@@ -1,7 +1,7 @@
 /* Hero Section */
 .jumbotron {
     position: relative;
-    background-image: url('../../assets/images/home_hero.png');
+    background-image: url('../../assets/images/TDM-hero.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -70,7 +70,7 @@ p {
     .jumbotron {
         max-width: 100%;
         height: auto;
-        padding: 31em;
+        padding-top: 36em;
     }
 }
 
@@ -78,31 +78,41 @@ p {
     .jumbotron {
         max-width: 100%;
         height: auto;
-        padding: 20em;
+        padding-top: 25em;
     }
 }
 
 @media (max-width: 1200px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
         padding: 19em;
+    }
+}
+
+@media (max-width: 1100px) {
+    .jumbotron {
+        padding-top: 45em;
     }
 }
 
 @media (max-width: 915px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
-        padding: 16em;
+        padding-top: 35em;
     }
 }
 
 @media (max-width: 768px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
-        padding: 11em;
+        padding-top: 40em;
+    }
+
+    .card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 540px) {
+    .jumbotron {
+        padding: 30em 0 20em 0;
     }
 
     .card {
@@ -112,18 +122,21 @@ p {
 
 @media (max-width: 500px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
         padding: 8em;
+    }
+
+}
+
+@media (max-width: 430px) {
+    .jumbotron {
+        padding-top: 40em;
     }
 
 }
 
 @media (max-width: 375px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
-        padding: 7em;
+        padding-top: 33em;
     }
 
 }

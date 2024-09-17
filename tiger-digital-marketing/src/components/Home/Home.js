@@ -4,7 +4,8 @@ import "./Home.css";
 import "../../App.css";
 
 const HeroSection = () => (
-  <div className="jumbotron text-center bg-dark text-white"></div>
+  <div className="jumbotron text-center bg-dark text-white">
+  </div>
 );
 
 const WelcomeSection = () => (
