@@ -9,17 +9,22 @@
     justify-content: center;
     align-items: center;
     padding: 22em;
+    max-width: 100%;
+    height: auto;
 }
 
 h1 {
     margin-top: 1em;
-    font-size: 3rem;
+    font-size: 3em;
     font-weight: 800;
+    text-align: center;
 }
 
 p {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.25em;
+    font-weight: 600;
+    padding: 0.5em 3em;
+    text-align: center;
 }
 
 .shop-now-btn {
@@ -27,58 +32,133 @@ p {
     font-size: 1.5rem;
     font-weight: 700;
     padding: 0.5em 1em;
-    margin-top: 0.5em;
     text-decoration: none;
 }
 
-/* Featured Products Section */
+/* Services Section */
 
-.featured-product {
-    font-size: 3em;
-    color: #F2921D;
-    font-weight: 700;
-    font-style: italic;
-    padding: 0.5em;
+#webcoderskull-area {
+    text-align: center;
 }
 
-.card {
-    transition: transform 0.3s ease;
+.webcoderskull-law-area h2 {
+    font-weight: 400;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.webcoderskull-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 1.25em;
 }
 
-.card img {
-    height: 22rem;
-    object-fit: cover;
+.webcoderskull-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #6a78dc;
+    padding: 1em 0.5em;
+    margin-bottom: 1.25em;
+    background-color: #f5f5f5;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 1px 3px #4589ED, 0 1px 2px #4589ED;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
+.webcoderskull-item h3 {
+    font-size: 1.3em !important;
+    color: #474747 !important;
+    font-weight: 700 !important;
 }
 
-.card-text {
-    font-size: 1.2rem;
-    color: #777;
+.webcoderskull-item:hover {
+    box-shadow: 0 14px 28px #4589ED, 0 10px 10px #4589ED;
+}
+
+.learn-more {
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Comme', sans-serif;
+    color: #030102;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid #000000b3;
+    background-color: #F06D1A;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: transparent;
+    border-color: #F06D1A;
+    cursor: pointer;
+}
+
+/* Lightbox and Services Button */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    width: 60%;
+    max-width: 640px;
+    background-color: #f5f5f5;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+}
+
+.lightbox-content h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.lightbox-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-service {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #3267b4;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-service:hover {
+    background-color: #152b4d;
 }
 
 /* Media Queries */
-
-@media (max-width: 2000px) {
-    .jumbotron {
-        max-width: 100%;
-        height: auto;
-        padding-top: 36em;
-    }
-}
-
 @media (max-width: 1400px) {
     .jumbotron {
-        max-width: 100%;
-        height: auto;
         padding-top: 25em;
+    }
+
+    h1 {
+        font-size: 2.5em;
     }
 }
 
@@ -86,57 +166,163 @@ p {
     .jumbotron {
         padding: 19em;
     }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
     .jumbotron {
         padding-top: 45em;
     }
+
+    .webcoderskull-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+    }
+
+    .webcoderskull-item {
+        justify-content: space-evenly;
+    }
+
+
 }
 
-@media (max-width: 915px) {
-    .jumbotron {
-        padding-top: 35em;
+@media (max-width: 912px) {
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 17em;
     }
 }
+
+@media (max-width: 853px) {
+    .webcoderskull-row {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 0em;
+    }
+
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 45em;
+    }
+}
+
 
 @media (max-width: 768px) {
     .jumbotron {
-        padding-top: 40em;
+        padding-top: 30em;
+        padding: 12em;
     }
 
-    .card {
-        margin-bottom: 30px;
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .learn-more,
+    .btn-service {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .lightbox-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .webcoderskull-item {
+        padding: 1em;
+        margin: 1em;
     }
 }
 
-@media (max-width: 540px) {
-    .jumbotron {
-        padding: 30em 0 20em 0;
+@media (max-width:540px) {
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 30em;
     }
 
-    .card {
-        margin-bottom: 30px;
-    }
+
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
     .jumbotron {
-        padding: 8em;
+        padding: 8em 1em;
     }
 
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .learn-more,
+    .btn-service {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .lightbox-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .webcoderskull-item h3 {
+        font-size: 1.2em;
+    }
+
+    .webcoderskull-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-gap: 0em;
+        justify-content: center;
+        width: 22em;
+    }
 }
 
 @media (max-width: 430px) {
-    .jumbotron {
-        padding-top: 40em;
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 22.5em;
     }
-
 }
 
-@media (max-width: 375px) {
+@media (max-width: 390px) {
     .jumbotron {
-        padding-top: 33em;
+        padding-top: 10em;
+        padding-bottom: 5em;
     }
 
+    h1 {
+        font-size: 1.6em;
+    }
+
+    p {
+        font-size: 0.9em;
+        padding: 0 2em;
+    }
+
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 21em;
+    }
+}
+
+@media (max-width:375px) {
+    .webcoderskull-item {
+        justify-content: space-around;
+        width: 19.5em;
+    }
 }

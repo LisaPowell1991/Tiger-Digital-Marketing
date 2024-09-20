@@ -7,10 +7,6 @@ import Login from './components/Login_Signup/Login';
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
 import HomePage from './components/Home/Home';
-import ProductPage from './components/Product/ProductPage';
-import ProductDetail from './components/Product/ProductDetail';
-import Cart from './components/Checkout_Cart/Cart';
-import CheckoutPage from './components/Checkout_Cart/CheckoutPage';
 import { auth, getShoes } from './config/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,28 +20,6 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const [shoes, setShoes] = useState([]);
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (item) => {
-    setCart(prevCart => [...prevCart, item]);
-    toast.success('Item added to cart!');
-  };
-
-  const updateCartItemQuantity = (index, quantity) => {
-    setCart(prevCart => {
-      const updatedCart = [...prevCart];
-      if (quantity <= 0) {
-        updatedCart.splice(index, 1); // Remove item if quantity is zero or less
-      } else {
-        updatedCart[index].quantity = quantity;
-      }
-      return updatedCart;
-    });
-  };
-
-  const removeCartItem = (index) => {
-    setCart(prevCart => prevCart.filter((_, i) => i !== index));
-  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -87,7 +61,6 @@ function App() {
     try {
       await signOut(auth);
       setUser(null);
-      setCart([]);
       toast.success('User logged out successfully!');
     } catch (error) {
       toast.error('Error logging out: ' + error.message);
@@ -102,7 +75,6 @@ function App() {
           handleShowLogin={handleShowLogin}
           handleShowSignup={handleShowSignup}
           handleLogout={handleLogout}
-          cartItemCount={cart.reduce((total, item) => total + item.quantity, 0)} // Calculate total quantity in cart
         />
 
         <Login show={showLogin} handleClose={handleCloseLogin} />
@@ -114,10 +86,6 @@ function App() {
             <Route path="/home" element={<HomePage shoes={shoes} />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/products" element={<ProductPage shoes={shoes} setShoes={setShoes} />} />
-            <Route path="/product/:id" element={<ProductDetail shoes={shoes} addToCart={addToCart} />} />
-            <Route path="/cart" element={<Cart cart={cart} updateCartItemQuantity={updateCartItemQuantity} removeCartItem={removeCartItem} user={user} />} />
-            <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} user={user} />} />
           </Routes>
         </div>
 
