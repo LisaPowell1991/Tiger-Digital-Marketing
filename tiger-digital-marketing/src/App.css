@@ -97,39 +97,3 @@ h3 {
   color: var(--accent-color);
   /* Orange */
 }
-
-/* ProductDetail */
-.container {
-  margin-bottom: 3rem;
-}
-
-.d-flex {
-  justify-content: space-evenly;
-}
-
-.size-block {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.size-block.selected {
-  background-color: #383736;
-  color: var(--text-color-light);
-  border-color: #383736;
-}
-
-.size-block:hover {
-  background-color: #f1f1f1;
-}
-
-.form-control {
-  width: 20%;
-}
