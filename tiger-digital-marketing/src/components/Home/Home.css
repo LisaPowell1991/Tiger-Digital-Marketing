@@ -33,6 +33,7 @@ h1,
 h2,
 h3 {
     margin: 0.75em 0;
+    font-family: var(--font-main);
 }
 
 /* Hero Section */
@@ -116,13 +117,13 @@ h3 {
     font-size: var(--font-size-sm);
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 25px;
+    border-radius: 1.5em;
     transition: all var(--transition-speed) ease;
 }
 
 .learn-more-button {
     color: var(--text-dark);
-    padding: 10px 20px;
+    padding: 0.75em 1.5em;
     border: 2px solid #000000b3;
     background-color: var(--secondary-color);
 }
@@ -134,11 +135,11 @@ h3 {
 }
 
 .btn-service {
-    padding: 10px 20px;
+    padding: 0.75em 1.5em;
     background-color: var(--primary-color);
     color: var(--white-color);
     border: none;
-    border-radius: 15px;
+    border-radius: 1em;
     cursor: pointer;
 }
 
@@ -165,7 +166,7 @@ h3 {
     width: 80%;
     max-width: 600px;
     background-color: var(--light-gray);
-    padding: 30px;
+    padding: 2em;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     position: relative;
@@ -173,9 +174,9 @@ h3 {
 
 .lightbox .close {
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
+    top: 0.75em;
+    right: 1.5em;
+    font-size: 2em;
     color: #333;
     cursor: pointer;
 }
@@ -212,7 +213,7 @@ h3 {
 }
 
 .package-button strong {
-    font-size: 1.25em;
+    font-size: 1.2em;
     letter-spacing: 0.1em;
 }
 
@@ -247,6 +248,42 @@ h3 {
     /* Slightly increase the size on hover */
 }
 
+/* Testimonials Section */
+.carousel img {
+    width: 100px;
+    max-height: 100px;
+    border-radius: 20%;
+    margin-right: 1rem;
+    overflow: hidden;
+}
+
+.card-body {
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel-inner {
+    padding: 1em;
+}
+
+.carousel .card {
+    margin: 0 0.5em;
+    border: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3rem;
+    height: 3rem;
+    background-color: grey;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /* Media Queries */
 @media (max-width: 1400px) {
     .jumbotron {
@@ -272,10 +309,19 @@ h3 {
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .carousel-item {
+        display: block;
+        margin-right: 0;
+    }
+}
+
 @media (max-width: 1024px) {
     .jumbotron {
         padding-top: 45em;
     }
+
+
 }
 
 @media (max-width: 768px) {
@@ -303,6 +349,22 @@ h3 {
     }
 }
 
+@media screen and (min-width: 576px) {
+    .carousel-inner {
+        display: flex;
+        width: 95%;
+        margin-inline: auto;
+        padding: 1em 0;
+        overflow: hidden;
+    }
+
+    .carousel-item {
+        display: block;
+        margin-right: 0;
+        flex: 0 0 calc(100% / 2);
+    }
+}
+
 @media (max-width: 480px) {
     .jumbotron {
         padding: 8em 1em;
@@ -324,6 +386,6 @@ h3 {
 
     .lightbox-content {
         width: 95%;
-        padding: 15px;
+        padding: 1em;
     }
 }
