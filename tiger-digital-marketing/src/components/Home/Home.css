@@ -1,4 +1,4 @@
-/* CSS Variables */
+/* ======= CSS Variables ======= */
 :root {
     --primary-color: #3267b4;
     --secondary-color: #F06D1A;
@@ -17,7 +17,7 @@
     --transition-speed: 0.3s;
 }
 
-/* Global Styles */
+/* ======= Global Styles ======= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,7 +36,7 @@ h3 {
     font-family: var(--font-main);
 }
 
-/* Hero Section */
+/* ======= Hero Section ======= */
 .jumbotron {
     position: relative;
     background: url('../../assets/images/TDM-hero.webp') center/cover no-repeat;
@@ -49,7 +49,7 @@ h3 {
     height: auto;
 }
 
-/* Welcome Section */
+/* ======= Welcome Section ======= */
 .welcome-heading {
     text-align: center;
     font-size: 3em;
@@ -62,7 +62,7 @@ h3 {
     padding: 0 5em;
 }
 
-/* Services Section */
+/* ======= Services Section ======= */
 #services-section {
     text-align: center;
 }
@@ -111,7 +111,7 @@ h3 {
     box-shadow: 0 14px 28px var(--shadow-color), 0 10px 10px var(--shadow-color);
 }
 
-/* Button Styles */
+/* ======= Button Styles ======= */
 .learn-more-button,
 .btn-service {
     font-size: var(--font-size-sm);
@@ -147,7 +147,7 @@ h3 {
     background-color: #152b4d;
 }
 
-/* Lightbox */
+/* ======= Lightbox ======= */
 .lightbox {
     position: fixed;
     top: 0;
@@ -181,7 +181,7 @@ h3 {
     cursor: pointer;
 }
 
-/* Packages Section */
+/* ======= Packages Section ======= */
 .packages-section {
     padding: 1em 0;
     text-align: center;
@@ -217,7 +217,7 @@ h3 {
     letter-spacing: 0.1em;
 }
 
-/* Pop-out animation */
+/* Pop-out button animation */
 @keyframes popOut {
     from {
         transform: scale(0.8);
@@ -248,7 +248,7 @@ h3 {
     /* Slightly increase the size on hover */
 }
 
-/* Testimonials Section */
+/* ======= Testimonials Section ======= */
 .carousel img {
     width: 100px;
     max-height: 100px;
@@ -261,7 +261,6 @@ h3 {
     height: 30em;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -284,7 +283,7 @@ h3 {
     transform: translateY(-50%);
 }
 
-/* Media Queries */
+/* ======= Media Queries ======= */
 @media (max-width: 1400px) {
     .jumbotron {
         padding-top: 25em;
