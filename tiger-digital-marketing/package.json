@@ -27,6 +27,7 @@
         "react-router-dom": "^6.23.1",
         "react-scripts": "^5.0.1",
         "react-toastify": "^10.0.5",
+        "react-whatsapp-widget": "^2.2.0",
         "stripe": "^15.8.0",
         "unsplash-js": "^7.0.19",
         "web-vitals": "^2.1.4"

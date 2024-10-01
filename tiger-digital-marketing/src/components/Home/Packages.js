@@ -1,7 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
-import "../../App.css";
 
 const PackagesSection = () => {
     return (

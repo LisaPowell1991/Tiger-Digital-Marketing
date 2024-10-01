@@ -1,14 +1,14 @@
 import React from "react";
 import ServicesSection from "./Services";
 import PackagesSection from "./Packages";
+import HeroSection from "./Hero";
 import SuccessStories from "./SuccessStories";
+import 'react-whatsapp-widget/dist/index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 import "../../App.css";
 
-const HeroSection = () => (
-  <div className="jumbotron"></div>
-);
+
 
 const WelcomeSection = () => (
   <>

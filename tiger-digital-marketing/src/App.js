@@ -14,6 +14,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { searchPhotos } from './unsplashService';
+import { WhatsAppWidget } from 'react-whatsapp-widget';
+import 'react-whatsapp-widget/dist/index.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -90,6 +92,8 @@ function App() {
         </div>
 
         <Footer />
+
+        <WhatsAppWidget className="custom-whatsapp-widget" phoneNumber="0769140640" />
 
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       </div>
