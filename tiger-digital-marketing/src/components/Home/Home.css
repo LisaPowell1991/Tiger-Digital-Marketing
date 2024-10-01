@@ -245,7 +245,6 @@ h3 {
 .package-link:hover {
     background-color: var(--primary-color);
     transform: scale(1.1);
-    /* Slightly increase the size on hover */
 }
 
 /* ======= Testimonials Section ======= */

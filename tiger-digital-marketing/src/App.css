@@ -97,3 +97,48 @@ h3 {
   color: var(--accent-color);
   /* Orange */
 }
+
+/* ======= WhatsAppWidget ======= */
+.custom-whatsapp-widget {
+  /* Customize the button appearance */
+  --whatsapp-widget-background-color: #25D366;
+  /* WhatsApp green */
+  --whatsapp-widget-icon-color: #fff;
+  /* White icon */
+  --whatsapp-widget-button-size: 60px;
+  /* Button size */
+  --whatsapp-widget-button-border-radius: 50%;
+  /* Circular button */
+  --whatsapp-widget-button-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Shadow */
+
+}
+
+/* Additional custom styles */
+.custom-whatsapp-widget .whatsapp-widget-button {
+  background-color: var(--whatsapp-widget-background-color);
+  color: var(--whatsapp-widget-icon-color);
+  width: var(--whatsapp-widget-button-size);
+  height: var(--whatsapp-widget-button-size);
+  border-radius: var(--whatsapp-widget-button-border-radius);
+  box-shadow: var(--whatsapp-widget-button-box-shadow);
+
+  position: fixed;
+  left: 20px;
+  /* Move to the left */
+  bottom: 20px;
+  /* Stay at the bottom */
+  z-index: 1000;
+  /* Make sure it appears above other content */
+}
+
+._2qp0Z {
+  position: fixed;
+  left: 1.5em;
+  /* Move to the left */
+  bottom: 1.5em;
+  /* Stay at the bottom */
+  z-index: 1000;
+  /* Make sure it appears above other content */
+
+}
