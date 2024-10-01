@@ -36,6 +36,45 @@
     text-decoration: underline;
 }
 
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
 .social-links a {
     display: inline-block;
     margin: 0 0.5em;
@@ -44,16 +83,35 @@
     transition: color 0.3s;
 }
 
+/* Custom hover colors for each social icon */
 .social-links a:hover[aria-label="Facebook"] {
     color: #3b5998;
+    /* Facebook blue */
 }
 
-.social-links a:hover[aria-label="Twitter"] {
-    color: #1da1f2;
+.social-links a:hover[aria-label="LinkedIn"] {
+    color: #0077b5;
+    /* LinkedIn blue */
 }
 
 .social-links a:hover[aria-label="Instagram"] {
     color: #e1306c;
+    /* Instagram pink */
+}
+
+.social-links a:hover[aria-label="Tiktok"] {
+    color: #010101;
+    /* TikTok black */
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 0.75em 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 1em;
 }
 
 .footer-bottom {
