@@ -2,6 +2,7 @@ import React from "react";
 import ServicesSection from "./Services";
 import PackagesSection from "./Packages";
 import HeroSection from "./Hero";
+import heroImageHome from '../../assets/images/TDM-hero.webp';
 import SuccessStories from "./SuccessStories";
 import 'react-whatsapp-widget/dist/index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,7 +22,7 @@ const WelcomeSection = () => (
 
 const HomePage = () => (
   <div className="text-center">
-    <HeroSection />
+    <HeroSection backgroundImage={heroImageHome} />
     <WelcomeSection />
     <ServicesSection />
     <PackagesSection />

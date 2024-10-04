@@ -22,9 +22,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-bottom">
-        <p>&copy; 2024 Tiger Digital Marketing. All Rights Reserved.</p>
-      </div>
     </footer>
   );
 };
