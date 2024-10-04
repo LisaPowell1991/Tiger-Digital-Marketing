@@ -36,21 +36,12 @@ h3 {
     font-family: var(--font-main);
 }
 
-/* ======= Hero Section ======= */
-.jumbotron {
-    position: relative;
-    background: url('../../assets/images/TDM-hero.webp') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 22em 0;
-    max-width: 100%;
-    height: auto;
-}
+
 
 /* ======= Welcome Section ======= */
 .welcome-heading {
+    margin-top: 1em;
+    ;
     text-align: center;
     font-size: 3em;
     font-weight: var(--font-weight-bold);
