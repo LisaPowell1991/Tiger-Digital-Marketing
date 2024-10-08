@@ -1,13 +1,7 @@
-/* Header styles */
-.header h1 {
-  color: #F2921D;
-  font-size: 2.5rem;
-}
-
-/* About section styles */
+/* ======= About Section Styles ======= */
 .about-title {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 2rem;
+  font-family: var(--font-main), cursive;
+  font-size: 2em;
   letter-spacing: 1.8px;
   margin: 0;
 }
@@ -51,7 +45,6 @@
   width: 100%;
   height: 2px;
   background-color: #000000;
-  color: #000000;
   margin: 1em 0;
 }
 
@@ -68,6 +61,7 @@ hr {
   margin: 0;
 }
 
+/* ======= Media Queries for About Section ======= */
 @media (max-width: 768px) {
   .goals-grid {
     grid-template-columns: 1fr;
@@ -75,11 +69,11 @@ hr {
 
   .goal-block {
     padding: 1.5em;
-    margin: 0 1em
+    margin: 0 1em;
   }
 }
 
-/* Team section styles */
+/* ======= Team Section Styles ======= */
 .team-container {
   display: flex;
   flex-wrap: wrap;
@@ -88,30 +82,27 @@ hr {
   position: relative;
 }
 
-/* Founder styles */
-.team-card.founder {
-  flex: 0 0 100%;
-  height: 600px;
-  /* You can adjust this height if needed */
-  max-width: 1000px;
-  font-size: 1.9em !important;
-}
-
 .team-card {
   background-color: rgba(229, 229, 229, 1);
   box-shadow: -1px 9px 18px -5px rgba(17, 17, 17, 1);
   flex: 0 0 30%;
-  height: 400px;
+  height: 445px;
   margin: 25px 5px 0;
   min-width: 350px;
   overflow: hidden;
   position: relative;
 }
 
-/* Team card styles */
+.team-card.founder {
+  flex: 0 0 100%;
+  height: 540px;
+  max-width: 1000px;
+  font-size: 1.9em !important;
+}
+
 .team-image {
   display: block;
-  height: 500px;
+  height: 600px;
   margin: 0 auto;
   object-fit: cover;
   object-position: center;
@@ -125,7 +116,7 @@ hr {
   bottom: 5%;
   left: 0;
   line-height: 1.5;
-  max-width: 300px;
+  max-width: 100%;
   padding: 0 20px;
   position: absolute;
   transition: all 0.4s;
@@ -133,6 +124,8 @@ hr {
 }
 
 .team-role {
+  margin-top: 10px;
+  /* Add margin to create space between name and role */
   letter-spacing: 1.1px;
   font-size: 1.65em !important;
   text-align: center !important;
@@ -164,12 +157,20 @@ hr {
   margin: 0 0 20px;
 }
 
-/* Hover effects */
+/* ======= Hover Effects ======= */
 .team-card:hover .team-image {
   border-radius: 50%;
   height: 200px;
   margin-top: 20px;
   width: 200px;
+}
+
+/* Founder-specific hover effect */
+.team-card.founder:hover .team-image {
+  border-radius: 50%;
+  height: 300px;
+  margin-top: 20px;
+  width: 300px;
 }
 
 .team-card:hover .team-card__role {
@@ -181,10 +182,10 @@ hr {
   visibility: visible;
 }
 
-/* Media queries */
+/* ======= Media Queries for Team Section ======= */
 @media only screen and (max-width: 1200px) {
   .team-card {
-    flex: 0 0 48%;
+    flex: 0 0 40%;
   }
 }
 

@@ -1,20 +1,25 @@
+/* ==== Root Variables ==== */
 :root {
-  --primary-color: #3267B4;
-  /* Blue */
-  --btn-hover: #383736;
-  /* Dark Gray */
-  --btn-hover-light: #d3d3d3;
-  /* Light Grey for hover */
-  --secondary-color: #030102;
-  /* Black */
-  --text-color: #383736;
-  /* Dark Gray */
-  --text-color-light: #ffffff;
-  /* White */
-  --accent-color: #F06D1A;
-  /* Orange */
+  --primary-color: #3267b4;
+  --secondary-color: #F06D1A;
+  --light-gray: #f5f5f5;
+  --dark-gray: #474747;
+  --shadow-color: #4589ED;
+  --white-color: #fefefe;
+  --text-dark: #030102;
+  /*   --btn-hover: #383736;
+  --btn-hover-light: #d3d3d3; */
+  --font-main: 'Poppins', sans-serif;
+  --font-size-lg: 2em;
+  --font-size-md: 1.5em;
+  --font-size-sm: 1em;
+  --font-weight-bold: 700;
+  --font-weight-normal: 400;
+  --border-radius: 1em;
+  --transition-speed: 0.3s;
 }
 
+/* ==== Global Styles ==== */
 body,
 html {
   height: 100%;
@@ -24,20 +29,17 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
-  /* White background */
   display: flex;
   flex-direction: column;
 }
 
 h1 {
   color: var(--primary-color) !important;
-  /* Blue */
   text-align: center;
 }
 
 h2 {
   color: var(--primary-color) !important;
-  /* Blue */
   text-align: justify !important;
   font-size: 2.5em !important;
   font-weight: 700 !important;
@@ -53,6 +55,7 @@ h3 {
   min-height: 100vh;
 }
 
+/* ==== Button Styles ==== */
 .custom-button {
   background-color: var(--primary-color);
   color: var(--text-color-light);
@@ -64,7 +67,7 @@ h3 {
 }
 
 .custom-button:hover {
-  background-color: var(--btn-hover-light) !important;
+  background-color: var(--secondary-color) !important;
   color: var(--text-color-light);
 }
 
@@ -73,48 +76,20 @@ h3 {
   margin-left: 0px;
 }
 
+/* ==== Main Content Section ==== */
 .main-content {
   flex: 1;
 }
 
-/* ProductPage */
-.card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.card {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover .card-title,
-.card:hover .card-text {
-  color: var(--accent-color);
-  /* Orange */
-}
-
-/* ======= WhatsAppWidget ======= */
+/* ==== WhatsApp Widget Styles ==== */
 .custom-whatsapp-widget {
-  /* Customize the button appearance */
   --whatsapp-widget-background-color: #25D366;
-  /* WhatsApp green */
   --whatsapp-widget-icon-color: #fff;
-  /* White icon */
   --whatsapp-widget-button-size: 60px;
-  /* Button size */
   --whatsapp-widget-button-border-radius: 50%;
-  /* Circular button */
   --whatsapp-widget-button-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Shadow */
-
 }
 
-/* Additional custom styles */
 .custom-whatsapp-widget .whatsapp-widget-button {
   background-color: var(--whatsapp-widget-background-color);
   color: var(--whatsapp-widget-icon-color);
@@ -125,20 +100,14 @@ h3 {
 
   position: fixed;
   left: 20px;
-  /* Move to the left */
   bottom: 20px;
-  /* Stay at the bottom */
   z-index: 1000;
-  /* Make sure it appears above other content */
 }
 
+/* ==== WhatsApp Widget Z-index Positioning ==== */
 ._2qp0Z {
   position: fixed;
   left: 1.5em;
-  /* Move to the left */
   bottom: 1.5em;
-  /* Stay at the bottom */
   z-index: 1000;
-  /* Make sure it appears above other content */
-
 }
