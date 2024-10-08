@@ -18,7 +18,7 @@ const SuccessStories = () => {
                     // Update the number of visible items based on screen width
                     const screenWidth = window.innerWidth;
                     if (screenWidth >= 1024) {
-                        setVisibleItems(2); // 3 items for large screens
+                        setVisibleItems(2); // 2 items for large screens
                     } else if (screenWidth >= 576) {
                         setVisibleItems(2); // 2 items for medium screens
                     } else {
@@ -52,6 +52,7 @@ const SuccessStories = () => {
             });
         }
     };
+
     const handlePrev = () => {
         const previousScrollPosition = scrollPosition - cardWidth;
 
@@ -136,10 +137,10 @@ const SuccessStories = () => {
             <h2 className="text-center package-title">
                 Success Stories
             </h2>
-            <div id="testimonialCarousel" className="carousel">
-                <div className="carousel-inner" ref={carouselInnerRef}>
+            <div id="testimonialCarousel" className="carousel position-relative">
+                <div className="carousel-inner d-flex" ref={carouselInnerRef}>
                     {successStories.map(({ name, website, position, text, image }, index) => (
-                        <div className={`carousel-item ${index === 0 ? "active" : ""}`} key={index}>
+                        <div className="carousel-item" style={{ minWidth: `${100 / visibleItems}%` }} key={index}>
                             <div className="card shadow-sm rounded-3 p-2">
                                 <div className="quotes display-2 text-body-tertiary"></div>
                                 <div className="card-body">
@@ -154,7 +155,7 @@ const SuccessStories = () => {
                                         <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z" />
                                     </svg>
                                     <p className="card-text">{text}</p>
-                                    <div className="d-flex align-items-center pt-4">
+                                    <div className="d-flex align-items-center pt-2">
                                         <img src={image} alt={name} />
                                         <div>
                                             <h5 className="card-title fw-bold">
@@ -182,4 +183,5 @@ const SuccessStories = () => {
         </div>
     );
 };
+
 export default SuccessStories;

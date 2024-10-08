@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/images/TDM-logo.jpg';
+import Logo from '../../assets/images/TDM-logo.png';
 import './header.css';
 import '../../App.css';
 
