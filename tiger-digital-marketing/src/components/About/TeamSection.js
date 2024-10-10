@@ -28,7 +28,6 @@ const TeamMember = ({ image, name, role, desc, isFounder }) => (
             <p className="team-card__desc">{desc}</p>
         </div>
         <div className="team-card__role">
-            {/* Separate the name and role into different elements */}
             <h2 className="team-role">{role}</h2>
         </div>
     </div>
