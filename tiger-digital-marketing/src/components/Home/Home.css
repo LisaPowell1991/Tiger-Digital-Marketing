@@ -339,4 +339,25 @@ p {
         flex: 0 0 100%;
         margin-right: 0;
     }
+
+    .welcome-text {
+        text-align: center;
+        font-size: 1em;
+        padding: 0 3em !important;
+        margin-bottom: 1.5em !important;
+    }
+
+    .welcome-heading {
+        margin-top: 0 !important;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .welcome-text {
+        text-align: center;
+        font-size: 1.2em;
+        padding: 0 2em;
+        margin-bottom: 1em !important;
+    }
 }
