@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./contact.css";
 import "../../App.css";
 import HeroSection from "../Home/Hero";
@@ -15,13 +17,11 @@ const ContactForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Simple form validation
   const validate = () => {
     let inputErrors = {};
     if (!formData.fullName) inputErrors.fullName = 'Full name is required';
@@ -36,15 +36,13 @@ const ContactForm = () => {
     return Object.keys(inputErrors).length === 0;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // You can handle form submission here
-      console.log('Form submitted:', formData);
-      alert('Form submitted successfully!');
+      toast.success('Form submitted successfully!', {
+        position: "top-right" // Set the position of the toast
+      });
 
-      // Clear the form after submission
       setFormData({
         fullName: '',
         contactNumber: '',
@@ -127,6 +125,9 @@ const ContactForm = () => {
 
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
+
+        {/* Toast container for displaying toast notifications */}
+        <ToastContainer position="bottom-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
       </div>
     </>
   );
