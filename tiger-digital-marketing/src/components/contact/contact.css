@@ -1,16 +1,10 @@
 .contact-form-container {
-    background-color: #fff;
+    background-color: #b6b4ca17;
     border-radius: 10px;
     padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     max-width: 600px;
     margin: 2rem auto;
-    position: relative;
-    background-image: url('https: //tigerdigitalmarketing.com/wp-content/uploads/2024/03/Blue-White-We-Are-Open-Coffee-Shop-Poster-1.png');
-    /* Optional background image */
-    background-size: cover;
-    background-position: right;
-    background-repeat: no-repeat;
 }
 
 .form-title {
@@ -64,9 +58,122 @@
     background-color: var(--shadow-color);
 }
 
-/* Responsive Design */
+/* popup form */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #F06D1A;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #F06D1A !important;
+    color: #fff;
+    border: 1px solid #F06D1A !important;
+    font-size: 1.25em !important;
+}
+
+.btn-primary:hover {
+    background-color: #383736 !important;
+    color: #fff;
+    border: 1px solid #383736 !important;
+}
+
+/* ==== Media Queries ==== */
+
+/* Medium Screens */
 @media (max-width: 768px) {
     .contact-form-container {
         padding: 1.5rem;
+    }
+
+    .popup-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .btn-primary {
+        font-size: 1.15rem;
+        padding: 0.7rem;
+    }
+}
+
+/* Small Screens */
+@media (max-width: 576px) {
+    .contact-form-container {
+        padding: 1rem;
+    }
+
+    .popup-content {
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .form-title {
+        font-size: 1.25rem;
+    }
+
+    .form-control {
+        padding: 0.6rem;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Extra Small Screens (mobile) */
+@media (max-width: 400px) {
+    .contact-form-container {
+        padding: 0.75rem;
+    }
+
+    .popup-content {
+        padding: 0.75rem;
+        max-width: 90%;
+    }
+
+    .form-title {
+        font-size: 2em !important;
+    }
+
+    .form-control {
+        padding: 0.5rem;
+    }
+
+    .btn-primary {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+
+    .close-button {
+        font-size: 1.5rem;
     }
 }
