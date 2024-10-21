@@ -13,7 +13,7 @@ const HeroSection = ({ backgroundImage }) => (
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '22em 0',
+            padding: '30em 0',
             maxWidth: '100%',
             height: 'auto'
         }}

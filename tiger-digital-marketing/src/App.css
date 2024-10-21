@@ -83,25 +83,21 @@ h3 {
 
 /* ==== WhatsApp Widget Styles ==== */
 .custom-whatsapp-widget {
-  --whatsapp-widget-background-color: #25D366;
-  --whatsapp-widget-icon-color: #fff;
+  --whatsapp-widget-background-color: #25D366 !important;
+  --whatsapp-widget-icon-color: #fff !important;
   --whatsapp-widget-button-size: 60px;
   --whatsapp-widget-button-border-radius: 50%;
   --whatsapp-widget-button-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .custom-whatsapp-widget .whatsapp-widget-button {
-  background-color: var(--whatsapp-widget-background-color);
-  color: var(--whatsapp-widget-icon-color);
+  background-color: var(--whatsapp-widget-background-color) !important;
+  color: var(--whatsapp-widget-icon-color) !important;
   width: var(--whatsapp-widget-button-size);
   height: var(--whatsapp-widget-button-size);
   border-radius: var(--whatsapp-widget-button-border-radius);
   box-shadow: var(--whatsapp-widget-button-box-shadow);
 
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  z-index: 1000;
 }
 
 /* ==== WhatsApp Widget Z-index Positioning ==== */

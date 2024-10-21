@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./contact.css";
 import "../../App.css";
@@ -125,9 +125,6 @@ const ContactForm = () => {
 
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-
-        {/* Toast container for displaying toast notifications */}
-        <ToastContainer position="bottom-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
       </div>
     </>
   );

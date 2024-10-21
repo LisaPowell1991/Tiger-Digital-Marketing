@@ -5,16 +5,18 @@ import Headers from "./components/header/header";
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
 import HomePage from './components/Home/Home';
+import { ToastContainer } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import { WhatsAppWidget } from 'react-whatsapp-widget';
+import 'react-whatsapp-widget/dist/index.css';
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Simulate user authentication check
     const fetchUser = () => {
-      // Fetch user logic
       setUser(null); // Set user to null for now, modify as needed
     };
 
@@ -35,6 +37,14 @@ function App() {
           </Routes>
         </div>
         <Footer />
+
+        {/* WhatsApp Widget */}
+        <div style={{ position: 'fixed', bottom: '20px', left: '20px', zIndex: 1000 }}>
+          <WhatsAppWidget phoneNumber="0769140640" />
+        </div>
+
+        {/* Global Toast Container */}
+        <ToastContainer position="bottom-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
       </div>
     </Router>
   );
