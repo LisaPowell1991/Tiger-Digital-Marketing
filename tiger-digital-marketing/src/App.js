@@ -5,6 +5,8 @@ import Headers from "./components/header/header";
 import Footer from './components/footer/footer';
 import Contact from './components/contact/contact';
 import HomePage from './components/Home/Home';
+import LoginPage from './components/LoginPage/LoginPage';
+import Dashboard from './components/Dashboard/Dashboard';
 import { ToastContainer } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,6 +36,8 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
         <Footer />
