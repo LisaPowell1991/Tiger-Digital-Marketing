@@ -1,9 +1,9 @@
 // src/firebase.js
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { loadStripe } from '@stripe/stripe-js';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFunctions } from 'firebase/functions';
+import { getFirestore } from 'firebase/firestore';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,22 +15,12 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
-// Initialize Firebase only if it hasn't been initialized already
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
-const db = getFirestore(app);
-const functions = getFunctions(app, 'us-central1'); // Specify your region if different
+const functions = getFunctions(app);
+const firestore = getFirestore(app);
 
-// Ensure Stripe is loaded only if window is defined (i.e., not in SSR context)
-const stripePromise = typeof window !== 'undefined' ? loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY) : null;
-
-// Function to fetch shoes from Firestore
-export const getShoes = async () => {
-    const shoesCol = collection(db, 'shoes');
-    const shoeSnapshot = await getDocs(shoesCol);
-    const shoeList = shoeSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return shoeList;
-};
-
-export { auth, googleProvider, db, functions, httpsCallable, stripePromise };
+export { auth, functions, firestore };
