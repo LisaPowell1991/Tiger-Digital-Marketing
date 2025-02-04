@@ -1,0 +1,200 @@
+/* Import Google Font */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
+/* Root Variables for Colors */
+:root {
+    --primary-blue: #3267b4;
+    --dark-gray: #383736;
+    --accent-orange: #f06d1a;
+    --light-purple: #b6b4ca;
+    --primary-black: #030102;
+    --background-light: #f9f9f9;
+    --text-dark: #333;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+}
+
+
+/* FAQ Container */
+.faq-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: var(--primary-color) !important;
+    text-align: justify !important;
+    font-size: 2.5em !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+}
+
+/* FAQ Item */
+.faq {
+    background-color: var(--background-light);
+    border: 1px solid var(--light-purple);
+    border-radius: 12px;
+    margin: 20px 0;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+
+.faq:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* FAQ Title */
+.faq-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* FAQ Text */
+.faq-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.faq.active .faq-text {
+    max-height: 200px;
+    /* Adjust based on content length */
+}
+
+/* FAQ Toggle Button */
+.faq-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.faq-toggle i {
+    font-size: 18px;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.faq.active .faq-toggle .fa-chevron-down {
+    transform: rotate(-180deg);
+}
+
+/* Comment Bubble for Active FAQ */
+.faq.active::before,
+.faq.active::after {
+    content: "\f075";
+    font-family: "Font Awesome 5 Free";
+    color: var(--primary-blue);
+    font-size: 5.5rem;
+    position: absolute;
+    opacity: 0.2;
+    top: 20px;
+    left: 20px;
+    z-index: 0;
+}
+
+.faq.active::before {
+    color: var(--accent-orange);
+    top: -20px;
+    left: -20px;
+    transform: rotateY(180deg);
+}
+
+/* Accessibility: Focus States */
+.faq-toggle:focus {
+    outline: 2px dashed var(--accent-orange);
+    outline-offset: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq {
+        padding: 18px;
+    }
+
+    .faq-title {
+        font-size: 16px;
+    }
+
+    .faq-text {
+        font-size: 15px;
+    }
+
+    .faq-toggle i {
+        font-size: 17px;
+    }
+
+    .faq.active::before,
+    .faq.active::after {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .faq {
+        padding: 15px;
+    }
+
+    .faq-title {
+        font-size: 14px;
+    }
+
+    .faq-text {
+        font-size: 13px;
+    }
+
+    .faq-toggle i {
+        font-size: 16px;
+    }
+
+    .faq.active::before,
+    .faq.active::after {
+        font-size: 3rem;
+        top: -15px;
+        left: -15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .faq {
+        padding: 12px;
+    }
+
+    .faq-title {
+        font-size: 12px;
+    }
+
+    .faq-text {
+        font-size: 12px;
+    }
+
+    .faq-toggle i {
+        font-size: 14px;
+    }
+
+    .faq.active::before,
+    .faq.active::after {
+        font-size: 2.5rem;
+        top: -10px;
+        left: -10px;
+    }
+}

@@ -1,7 +1,7 @@
 // src/firebase.js
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -31,6 +31,14 @@ export const getShoes = async () => {
     const shoeSnapshot = await getDocs(shoesCol);
     const shoeList = shoeSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     return shoeList;
+};
+
+// Function to fetch FAQs from Firestore
+export const getFaqs = async (collectionName) => {
+    const faqsCol = collection(db, collectionName);  // Use the dynamic collection name
+    const faqSnapshot = await getDocs(faqsCol);
+    const faqList = faqSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return faqList;
 };
 
 export { auth, googleProvider, db, functions, httpsCallable, stripePromise };
