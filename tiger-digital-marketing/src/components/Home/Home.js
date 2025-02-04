@@ -4,6 +4,7 @@ import PackagesSection from "./Packages";
 import HeroSection from "./Hero";
 import heroImageHome from '../../assets/images/TDM-hero.webp';
 import SuccessStories from "./SuccessStories";
+import FAQ from "../FAQ/faq";
 import 'react-whatsapp-widget/dist/index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
@@ -27,6 +28,7 @@ const HomePage = () => (
     <ServicesSection />
     <PackagesSection />
     <SuccessStories />
+    <FAQ collectionName="faqs" />
   </div>
 );
 

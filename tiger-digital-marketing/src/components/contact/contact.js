@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./contact.css";
 import "../../App.css";
+import FAQ from "../FAQ/faq";
 import HeroSection from "../Home/Hero";
 import heroImageContact from '../../assets/images/contact-banner.webp';
 
@@ -126,6 +127,7 @@ const ContactForm = () => {
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
+      <FAQ collectionName="contact-faq" />
     </>
   );
 };
