@@ -1,20 +1,26 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const stripe = require('stripe')(functions.config().stripe.secret);
 
 admin.initializeApp();
 
-exports.createPaymentIntent = functions.https.onCall(async (data, context) => {
-    const amount = data.amount;
+// Example function to add a new user to Firestore
+exports.addUser = functions.https.onCall(async (data, context) => {
+    const { email, name } = data;
 
     try {
-        const paymentIntent = await stripe.paymentIntents.create({
-            amount: amount,
-            currency: 'usd',
+        const userRecord = await admin.auth().createUser({
+            email: email,
+            displayName: name,
+        });
+
+        await admin.firestore().collection('users').doc(userRecord.uid).set({
+            email: email,
+            name: name,
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
         });
 
         return {
-            clientSecret: paymentIntent.client_secret,
+            message: `User ${name} added successfully`,
         };
     } catch (error) {
         return {
